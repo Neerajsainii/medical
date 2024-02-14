@@ -1,0 +1,257 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-body-tertiary">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Navbar brand -->
+            <a class="navbar-brand me-2" href="https://mdbgo.com/">
+                <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="16" alt="MDB Logo"
+                    loading="lazy" style="margin-top: -1px;" />
+            </a>
+
+            <!-- Toggle button -->
+            <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarButtonsExample"
+                aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                </ul>
+
+                <!-- Left links -->
+
+                <div class="d-flex align-items-center">
+                    <button data-mdb-ripple-init type="button" class="btn btn-primary me-3">
+                        Login
+                    </button>
+                    <button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
+                        Sign up
+                    </button>
+                </div>
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+
+
+
+    <!-- Singn Up -->
+    <section class="background-radial-gradient overflow-hidden">
+
+        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+            <div class="row gx-lg-5 align-items-center mb-5">
+                <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+                    <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+                        The best offer <br />
+                        <span style="color: hsl(218, 81%, 75%)">for your business</span>
+                    </h1>
+                    <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Temporibus, expedita iusto veniam atque, magni tempora mollitia
+                        dolorum consequatur nulla, neque debitis eos reprehenderit quasi
+                        ab ipsum nisi dolorem modi. Quos?
+                    </p>
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                    <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                    <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+                    <div class="card bg-glass">
+                        <div class="card-body px-4 py-5 px-md-5">
+                            <form method="post" action="{% url 'userLogin' %}">
+                                {% csrf_token %}
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <input type="email" name="email" id="form3Example3" class="form-control" placeholder="Email*" />
+                                    <!-- <label class="form-label" for="form3Example3">Email address</label> -->
+                                </div>
+                                <!-- Password input -->
+                                <div class="form-outline mb-4">
+                                    <input type="password" name="password" id="form3Example4" class="form-control"
+                                        placeholder="Password*" />
+                                    <!-- <label class="form-label" for="form3Example4">Password</label> -->
+                                </div>
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary btn-block mb-4">
+                                    Log in
+                                </button>
+
+                                <!-- Register buttons -->
+                                <div class="text-center">
+                                    <p>or log in with:</p>
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <img src="/static/google.svg" alt="">
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <img src="/static/facebook.svg" alt="">
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <img src="/static/twitter.svg" alt="">
+                                    </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section: Design Block -->
+
+    <!-- Footer -->
+    <footer class="text-center bgg text-lg-start bg-body-tertiary text-muted">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+                <span>Get connected with us on social networks:</span>
+            </div>
+            <!-- Left -->
+
+            <!-- Right -->
+            <div>
+                <a href="#" class="me-4 text-reset">
+                    <img src="/static/facebook.svg" alt="google">
+                </a>
+                <a href="#" class="me-4 text-reset">
+                    <img src="/static/twitter.svg" alt="">
+                </a>
+                <a href="#" class="me-4 text-reset">
+                    <img src="/static/google.svg" alt="">
+                </a>
+                <a href="#" class="me-4 text-reset">
+                    <img src="/static/instagram.svg" alt="">
+                </a>
+                <a href="#" class="me-4 text-reset">
+                    <img src="/static/linkedin.svg" alt="">
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3"></i>Company name
+                        </h6>
+                        <p>
+                            Here you can use rows and columns to organize your footer content. Lorem ipsum
+                            dolor sit amet, consectetur adipisicing elit.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Products
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Angular</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">React</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Vue</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Laravel</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Useful links
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Pricing</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Settings</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Orders</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Help</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                        <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            info@example.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2021 Copyright:
+            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
