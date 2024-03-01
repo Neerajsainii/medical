@@ -1,77 +1,23 @@
+<!-- Assuming this is your symptoms form HTML file -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .body-map {
-            position: relative;
-            width: 300px;
-        }
-
-        .body-part {
-            position: absolute;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .body-part:hover {
-            background-color: #e0e0e0;
-        }
-
-        .head { top: 10px; left: 120px; width: 60px; height: 60px; }
-        .chest { top: 80px; left: 120px; width: 80px; height: 100px; }
-        .stomach { top: 180px; left: 120px; width: 100px; height: 120px; }
-        .leg { top: 320px; left: 120px; width: 120px; height: 180px; }
-    </style>
-    <title>Interactive Body Map</title>
+    <title>Symptoms Form</title>
 </head>
+
 <body>
-
-<div class="body-map">
-    <div class="body-part head" onclick="showForm('Head')"></div>
-    <div class="body-part chest" onclick="showForm('Chest')"></div>
-    <div class="body-part stomach" onclick="showForm('Stomach')"></div>
-    <div class="body-part leg" onclick="showForm('Leg')"></div>
-</div>
-
-<div id="myModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <form id="bodyPartForm">
-        <label for="symptoms">Enter Symptoms:</label>
-        <input type="text" id="symptoms" name="symptoms" required>
+    <h1>Enter Symptoms</h1>
+    <form id="symptomsForm" method="post" action="{% url 'process_symptoms' %}">
+        {% csrf_token %}
+        <label for="symptoms">Enter symptoms:</label>
+        <input type="text" id="symptoms" name="symptoms">
         <br>
         <button type="submit">Submit</button>
     </form>
-</div>
-
-<script>
-    function showForm(bodyPart) {
-        document.getElementById('myModal').style.display = 'block';
-        // You can customize this function to show specific forms based on the body part.
-    }
-
-    function closeModal() {
-        document.getElementById('myModal').style.display = 'none';
-    }
-
-    document.getElementById('bodyPartForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-        alert('Form submitted!');
-        closeModal();
-    });
-</script>
-
 </body>
+
 </html>

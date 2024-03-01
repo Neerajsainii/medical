@@ -23,6 +23,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("signup/", views.userSignup, name="userSignup"),
     path("login/", views.userLogin,name="userLogin"),
-    path("symptom/", view.symptomHome),
-    path("", views.Home, name="Home" ),
+    path("", view.Home ),
+    # path("", view.Home, name="Home" ),
+    path('api/process_symptoms/', view.process_symptoms, name='process_symptoms'),
+    # path('matched_diseases/', view.matchdisease, name='matched_diseases'),
 ]

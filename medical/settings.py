@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     # "medical"
     # "User"?
-    "Signup"
+    "Signup",
+    "Symptom"
 ]
 
 MIDDLEWARE = [
