@@ -1,4 +1,4 @@
-<!-- Assuming this is your symptoms form HTML file -->
+<!-- index.html for multiple symptoms -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +13,7 @@
     <h1>Enter Symptoms</h1>
     <form id="symptomsForm" method="post" action="{% url 'process_symptoms' %}">
         {% csrf_token %}
-        <label for="symptoms">Enter symptoms:</label>
+        <label for="symptoms">Enter symptoms (comma-separated):</label>
         <input type="text" id="symptoms" name="symptoms">
         <br>
         <button type="submit">Submit</button>
