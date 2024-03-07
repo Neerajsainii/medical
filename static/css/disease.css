@@ -1,0 +1,412 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ##################################################################### HEADER ######################################################### */
+.header{
+    height: 3.5rem;
+    width: 100%;
+    /* border: 2px solid red; */
+    background-color: black;
+}
+.nav{
+    height: 100%;
+    width: 90%;
+    /* border: 2px solid rgb(43, 187, 67); */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.logo{
+    height: 3rem;
+    margin-top: -2px;
+    display: flex;
+}
+.ulcontent {
+    list-style-type: none;
+    margin-left: 30px;
+    margin-top: -35px;
+  }
+.nav-btn{
+    display: flex;
+}
+.nav-btn a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.nav-item{
+    /* border: 2px solid red; */
+    margin-left: 6px;
+}
+.home-outline{
+    /* border: 2px solid white; */
+    margin-left: 50px;
+    margin-right: 20px;
+    padding: 5px 8px;
+    border-radius: 25px;
+    width: 70px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.home-outline:hover{
+    transform: translate(0px, -3px);
+    /* background-color: rgb(60, 60, 60); */
+}
+
+.about-outline{
+    /* border: 2px solid white; */
+    margin-left: 0px;
+    margin-right: 20px;
+    padding: 5px 8px;
+    border-radius: 25px;
+    width: 70px;
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+.about-outline:hover{
+    background-color: rgb(60, 60, 60);
+    transform: translate(0px, -3px);
+}
+.services-outline{
+    /* border: 2px solid white; */
+    margin-left: 0px;
+    margin-right: 20px;
+    padding: 5px 8px;
+    border-radius: 25px;
+    width: 84px;
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+.services-outline:hover{
+    background-color: rgb(60, 60, 60);
+    transform: translate(0px, -3px);
+}
+
+.contact-outline{
+    /* border: 2px solid white; */
+    margin-left: 0px;
+    margin-right: 20px;
+    padding: 5px 8px;
+    border-radius: 25px;
+    width: 80px;
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+.contact-outline:hover{
+    background-color: rgb(60, 60, 60);
+    transform: translate(0px, -3px);
+}
+.log {
+    list-style-type: none;
+    display: flex;
+    margin-top: 8px; /* Align items vertically centered */
+}
+
+.login-signup {
+    
+    text-decoration: none;
+    color: rgb(255, 255, 255); /* Set text color to white */
+    cursor: pointer;
+}
+
+
+.logout-outline{
+    /* border: 2px solid white; */
+    padding: 5px 15px;
+    margin-right: 2 0px;
+    border-radius: 25px;
+    background-color: rgb(0, 0, 0);
+    margin-top: 2px;
+}
+
+
+
+.logout-outline:hover{
+    background-color: rgb(60, 60, 60);
+    transform: translate(0px, -3px);
+}
+
+/* ######################################################################## BODY ##################################################### */
+
+.main-body{
+    background-image: url("../img/background.png");
+    height: 750px;
+    width: 100%;
+    position: relative;
+}
+.body{
+    width: 70%;
+    height: 75%;
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 12%;
+    left: 15%;
+    border-radius: 25px;
+    background-color: rgba(117, 203, 222, 0.644);
+    padding-top: 1.5em;
+    padding-left: 1.5rem;
+}
+
+.top-body{
+    width: 98%;
+    height: 10%;
+    /* border: 2px solid red; */
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    gap: 50px;
+    padding: 8px 35px;
+    margin-right: 1.5rem;
+}
+.boxx{
+    /* border: 2px solid red; */
+    border-radius: 25px;
+    background-color: rgba(132, 240, 239, 0.782);
+    text-align: center;
+    padding: 4px 0px;
+    color: black;
+    width: 25%;
+    height: 100%;
+    font-size: 1.4rem;
+}
+.boxx a{
+    text-decoration: none;
+    color: black;
+}
+
+.patient, .symptoms, .disease, .treatment{
+    font-weight: 300;
+}
+
+
+.bottom-body{
+    height: 90%;
+    width: 100%;
+    /* border: 2px solid blue; */
+    position: relative;
+    /* display: flex; */
+}
+.doc-img{
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+}
+.information{
+    font-size: 2.5rem;
+    margin-top: 1%;
+    margin-left: 3%;
+    text-decoration: underline;
+    font-weight: 400;
+    margin-bottom: 2%;
+    /* border: 2px solid red; */
+}
+.boxes{
+    margin-left: 25px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 25px;
+    width: 35%;
+    height: 80%;
+    padding: 10px;
+    max-height: 600px; /* Adjust the height as needed */
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.boxes::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 10px;
+}
+
+.boxes::-webkit-scrollbar-thumb {
+    background-color: #0398ac; /* Adjust the color as needed */
+    border-radius: 10px;
+}
+
+.boxes::-webkit-scrollbar-track {
+    background-color: #f1f1f100;
+    border-radius: 10px;
+}
+.symptom1 {
+    margin-top: 20px;
+}
+
+.disease-list {
+    list-style: none;
+    padding: 0;
+}
+
+.disease-item {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333; /* Adjust the color as needed */
+}
+
+
+
+.symptom1:hover{
+    background-color: #188897;
+}
+.symptom1 a{
+    text-decoration: none;
+    color: black;
+}
+.disease1{
+    /* border: 1px solid red; */
+    display: block;
+}
+/* Add this to your existing CSS or create a new CSS file */
+.symptom-boxes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.symptom-box {
+    width: 200px;
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.disease-name {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.percentage-match {
+    font-size: 16px;
+    color: #4CAF50; /* Green color, you can adjust this */
+}
+
+.no-match {
+    text-align: center;
+    font-size: 16px;
+    color: #F44336; /* Red color, you can adjust this */
+    margin-top: 20px;
+}
+
+
+
+.continue{
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    width: 15%;
+    height: 9%;
+    border-radius: 25px;
+    padding: px;
+    text-align: center;
+    font-size: 2rem;
+    /* background-color: #59AAB5; */
+}
+.continue a{
+    text-decoration: none;
+    color: black;
+}
+.continue:hover{
+    background-color: #188897;
+    transform: translate(0px, -3px);
+    
+}
+
+
+
+
+
+/* ########################################################### FOOTER ###################################################### */
+.footer{
+    height: 200px;
+    width: 100%;
+    /* border: 2px solid red; */
+    background-color: black;
+}
+.top{
+    height: 20%;
+    /* border: 2px solid blue; */
+    color: white;
+    display: flex;
+    
+}
+.top-left{
+    width: 50%;
+    /* border: 2px solid red; */
+}
+.top-right{
+    width: 50%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: right;
+}
+.connected{
+    font-weight: 200;
+    margin-left: 5em;
+    margin-top: 0.45em;
+}
+.bottom{
+    height: 67%;
+    /* border: 2px solid green; */
+    display: flex;
+}
+.terms{
+    height: 13%;
+    /* border: 2px solid blue; */
+}
+
+.media{
+    list-style-type: none;
+    display: flex;
+}
+.apps{
+    filter: invert(1);
+    margin-right: 40px;
+    margin-top: 7px;
+}
+.box{
+    width: 25%;
+    height: 100%;
+    /* border: 2px solid yellow; */
+    color: white;
+}
+.company{
+    font-weight: 400;
+    margin-top: 1em;
+    margin-left: 5em;
+    margin-bottom: 0.5rem;
+}
+.address{
+    
+    margin-left: 6em;
+    font-weight: 300;
+    line-height: 25px;
+}
+
+.links {
+    margin-left: 6em;
+    font-weight: 300;
+    line-height: 25px;
+}
+.box2 a{
+    color: white;
+}
+.policy{
+    list-style-type: none;
+    display: flex;
+    color: rgb(124, 124, 124);
+    justify-content: center;
+}
+.policy a{
+    color: rgb(124, 124, 124);
+    text-decoration: none;
+}
