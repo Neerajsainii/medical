@@ -25,6 +25,8 @@ urlpatterns = [
     path("login/", views.userLogin,name="userLogin"),
     # path("", view.Home ),
     path("", view.Home, name="Home" ),
+    path("home/", view.home ),
+    path("contact/", view.contact ),
     path("about.html/", view.about),
     path('/', view.process_symptoms, name='process_symptoms'),
     # path('matched_diseases/', view.matchdisease, name='matched_diseases'),
