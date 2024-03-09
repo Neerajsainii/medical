@@ -23,11 +23,10 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("signup/", views.userSignup, name="userSignup"),
     path("login/", views.userLogin,name="userLogin"),
-    # path("", view.Home ),
     path("", view.Home, name="Home" ),
     path("home/", view.home ),
     path("contact/", view.contact ),
     path("about.html/", view.about),
-    path('/', view.process_symptoms, name='process_symptoms'),
-    # path('matched_diseases/', view.matchdisease, name='matched_diseases'),
+    path('/', view.process_symptoms, name='process_symptoms'), 
+    path('disease_medicines/<int:disease_id>/', view.disease_medicines, name='disease_medicines'),
 ]

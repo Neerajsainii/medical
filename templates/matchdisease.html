@@ -68,24 +68,26 @@
         </div>
 
         <div class="bottom-body">
-          <img
-            class="doc-img"
-            src="../static/img/53efc602b1a165e637253bef8164edf9-removebg-preview.png"
-            alt=""
-          />
-          <h1 class="information">Diseases that matches your Symptoms</h1>
+          <img class="doc-img" src="../static/img/53efc602b1a165e637253bef8164edf9-removebg-preview.png" alt="" />
+          <h1 class="information">Diseases that match your Symptoms</h1>
           <div class="boxes">
-            <div class="symptom-boxes">
-              {% if matched_diseases %} {% for result in matched_diseases %}
-              <div class="symptom-box">
-                <h3 class="disease-name">{{ result.disease.name }}</h3>
-                <!-- <p class="percentage-match">{{ result.percentage_match }}%</p> -->
+              <div class="symptom-boxes">
+                  {% if matched_diseases %}
+                      {% for result in matched_diseases %}
+                          <div class="symptom-box">
+                              <a href="{% url 'disease_medicines' result.disease.id %}">
+                                  <h3 class="disease-name">{{ result.disease.name }}</h3>
+                                  <p class="percentage-match">{{ result.percentage_match }}%</p>
+                              </a>
+                          </div>
+                      {% endfor %}
+                  {% else %}
+                      <p class="no-match">No diseases matched the entered symptoms.</p>
+                  {% endif %}
               </div>
-              {% endfor %} {% else %}
-              <p class="no-match">No diseases matched the entered symptoms.</p>
-              {% endif %}
-            </div>
           </div>
+      </div>
+      
 
           <div class="continue"><a href="./treatment.html">Continue</a></div>
         </div>

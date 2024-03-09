@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.db.models import Count
 from django.http import JsonResponse
-from .models import Disease, Symptom, DiseaseSymptom
+from .models import Disease, Symptom , DiseaseSymptom, MedicineDisease
 
 def process_symptoms(request):
     if request.method == 'POST':
@@ -17,14 +17,14 @@ def process_symptoms(request):
     else:
         return render(request, 'index.html')
 
-
+matched_diseases = []
 def get_matched_diseases(entered_symptoms):
     symptom_ids = Symptom.objects.filter(name__in=entered_symptoms).values_list('id', flat=True)
    
     matched_disease_ids = DiseaseSymptom.objects.filter(symptom_id__in=symptom_ids).values_list('disease_id', flat=True)
 
     symptom_counts = DiseaseSymptom.objects.filter(disease_id__in=matched_disease_ids).values('disease_id').annotate(count=Count('symptom'))
-    print("Symptom Counts:", symptom_counts)
+    # print("Symptom Counts:", symptom_counts[0])
 
     percentage_matches = {}
     for symptom_count in symptom_counts:
@@ -41,6 +41,13 @@ def get_matched_diseases(entered_symptoms):
         result.append({'disease': disease, 'percentage_match': percentage_matches.get(disease.id, 0)})
 
     return result
+
+def disease_medicines(request, disease_id):
+    disease = get_object_or_404(Disease, pk=disease_id)
+    medicines = MedicineDisease.objects.filter(disease=disease).select_related('medicine')
+    return render(request, 'disease_medicines.html', {'disease': disease, 'medicines': medicines})
+
+# def get_object_or_404()
 def Home(request):
     return render(request,'index.html')
 
@@ -54,4 +61,6 @@ def home(request):
     return render(request,'home.html')
 
 def contact(request):
-    return render(request,'contact.html')
+    return render(request,'contact.html ')
+
+
