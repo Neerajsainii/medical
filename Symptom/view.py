@@ -1,7 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.db.models import Count
-from django.http import JsonResponse
-from .models import Disease, Symptom , DiseaseSymptom, MedicineDisease
+from .models import Disease, Symptom , DiseaseSymptom
 
 def process_symptoms(request):
     if request.method == 'POST':
@@ -17,7 +16,6 @@ def process_symptoms(request):
     else:
         return render(request, 'index.html')
 
-matched_diseases = []
 def get_matched_diseases(entered_symptoms):
     symptom_ids = Symptom.objects.filter(name__in=entered_symptoms).values_list('id', flat=True)
    
@@ -42,25 +40,5 @@ def get_matched_diseases(entered_symptoms):
 
     return result
 
-def disease_medicines(request, disease_id):
-    disease = get_object_or_404(Disease, pk=disease_id)
-    medicines = MedicineDisease.objects.filter(disease=disease).select_related('medicine')
-    return render(request, 'disease_medicines.html', {'disease': disease, 'medicines': medicines})
-
-# def get_object_or_404()
-def Home(request):
-    return render(request,'index.html')
-
-def symptoms(request):
-    return render(request,'symptoms.html')
-
-def about(request):
-    return render (request,'about.html')
-
-def home(request):
-    return render(request,'home.html')
-
-def contact(request):
-    return render(request,'contact.html ')
 
 

@@ -6,8 +6,6 @@ class Disease(models.Model):
 class Symptom(models.Model):
     name = models.CharField(max_length=255)
 
-class Medicine(models.Model):
-    name = models.CharField(max_length=255)
 
 class DiseaseSymptom(models.Model):
     disease = models.ForeignKey(Disease, on_delete=models.CASCADE)
@@ -16,9 +14,3 @@ class DiseaseSymptom(models.Model):
     class Meta:
         unique_together = ('disease', 'symptom')
 
-class MedicineDisease(models.Model):
-    disease = models.ForeignKey(Disease, on_delete=models.CASCADE)
-    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE)
-
-    class Meta:
-        unique_together = ('medicine','disease')

@@ -17,16 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Symptom import view
+from Medicine import viewss
 from Signup import views
+from Home import vieew
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("signup/", views.userSignup, name="userSignup"),
     path("login/", views.userLogin,name="userLogin"),
-    path("", view.Home, name="Home" ),
-    path("home/", view.home ),
-    path("contact/", view.contact ),
-    path("about.html/", view.about),
+    path("", vieew.Home, name="Home" ),
+    path("home/", vieew.home ),
+    path("contact/", vieew.contact ),
+    path("about.html/", vieew.about),
     path('/', view.process_symptoms, name='process_symptoms'), 
-    path('disease_medicines/<int:disease_id>/', view.disease_medicines, name='disease_medicines'),
+    path('disease_medicines/<int:disease_id>/', viewss.disease_medicines, name='disease_medicines'),
 ]
