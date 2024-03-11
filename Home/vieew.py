@@ -18,3 +18,13 @@ def symptoms(request):
 
 def contact(request):
     return render(request,'contact.html ')
+
+
+def infant(request):
+    return render(request,'infant.html ')
+
+def child(request):
+    return render(request,'child.html ')
+
+def info(request):
+    return render(request,'info.html ')

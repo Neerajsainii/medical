@@ -1,25 +1,10 @@
-"""
-URL configuration for medical project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from Symptom import view
 from Medicine import viewss
 from Signup import views
 from Home import vieew
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -30,7 +15,23 @@ urlpatterns = [
     path("emergency/", vieew.emergency),
     path("symptom/", vieew.Symptom),
     path("contact/", vieew.contact ),
-      path('process_disease/', view.process_disease, name='process_disease'),
+    path("infant/", vieew.infant),
+     path("child/", vieew.child),
+     path("info/", vieew.info),
     path('/', view.process_symptoms, name='process_symptoms'), 
     path('disease_medicines/<int:disease_id>/', viewss.treatment, name='disease_medicines'),
 ]
+# urlpatterns = [
+#     path("admin/", admin.site.urls),
+#     path("signup/", views.userSignup, name="userSignup"),
+#     path("login/", views.userLogin,name="userLogin"),
+#     path("", vieew.home ),
+#     path("about/", vieew.about),
+#     path("emergency/", vieew.emergency),
+#     path("symptom/", vieew.Symptom),
+#     path("contact/", vieew.contact ),
+#       path('process_disease/', view.process_disease, name='process_disease'),
+#     path('/', view.process_symptoms, name='process_symptoms'), 
+#     path('disease_medicines/<int:disease_id>/', viewss.treatment, name='disease_medicines'),
+# ]
+
