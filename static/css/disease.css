@@ -250,6 +250,10 @@
     background-color: #ffffff00;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.symptom-box a{
+    text-decoration: none;
+    color: black;
+}
 
 .disease1{
     /* border: 1px solid red; */

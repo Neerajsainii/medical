@@ -30,6 +30,7 @@ urlpatterns = [
     path("emergency/", vieew.emergency),
     path("symptom/", vieew.Symptom),
     path("contact/", vieew.contact ),
+      path('process_disease/', view.process_disease, name='process_disease'),
     path('/', view.process_symptoms, name='process_symptoms'), 
-    path('disease_medicines/<int:disease_id>/', viewss.disease_medicines, name='disease_medicines'),
+    path('disease_medicines/<int:disease_id>/', viewss.treatment, name='disease_medicines'),
 ]

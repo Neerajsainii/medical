@@ -75,6 +75,7 @@
                   {% if matched_diseases %}
                       {% for result in matched_diseases %}
                           <div class="symptom-box">
+                              <!-- <a href="">View Symptoms</a>   -->
                               <a href="{% url 'disease_medicines' result.disease.id %}">
                                   <h3 class="disease-name">{{ result.disease.name }}</h3>
                                   <p class="percentage-match">{{ result.percentage_match }}%</p>
@@ -84,12 +85,13 @@
                   {% else %}
                       <p class="no-match">No diseases matched the entered symptoms.</p>
                   {% endif %}
+
               </div>
           </div>
       </div>
       
 
-          <div class="continue"><a href="./treatment.html">Continue</a></div>
+          <!-- <div class="continue"><a href="./treatment.html">Continue</a></div> -->
         </div>
 
       </div>

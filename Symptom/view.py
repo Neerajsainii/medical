@@ -17,21 +17,31 @@ def process_symptoms(request):
         return render(request, 'index.html')
 
 def get_matched_diseases(entered_symptoms):
+    # Filter symptoms by those entered
     symptom_ids = Symptom.objects.filter(name__in=entered_symptoms).values_list('id', flat=True)
-   
+
+    # Get disease ids matching the entered symptoms
     matched_disease_ids = DiseaseSymptom.objects.filter(symptom_id__in=symptom_ids).values_list('disease_id', flat=True)
 
-    symptom_counts = DiseaseSymptom.objects.filter(disease_id__in=matched_disease_ids).values('disease_id').annotate(count=Count('symptom'))
-    # print("Symptom Counts:", symptom_counts[0])
+    # Count the total number of symptoms for each disease
+    total_symptoms_counts = DiseaseSymptom.objects.filter(disease_id__in=matched_disease_ids).values('disease_id').annotate(total_symptoms_count=Count('symptom'))
+
+    # Count the matched symptoms for each disease
+    matched_symptoms_counts = DiseaseSymptom.objects.filter(disease_id__in=matched_disease_ids, symptom_id__in=symptom_ids).values('disease_id').annotate(matched_symptoms_count=Count('symptom'))
 
     percentage_matches = {}
-    for symptom_count in symptom_counts:
-        disease_id = symptom_count['disease_id']
-        total_symptoms = DiseaseSymptom.objects.filter(disease_id=disease_id).count()
-        match_percentage = (symptom_count['count'] / total_symptoms) * 100
-        print(f"Disease ID: {disease_id}, Total Symptoms: {total_symptoms}, Match Percentage: {match_percentage}")
+    for total_count in total_symptoms_counts:
+        disease_id = total_count['disease_id']
+        total_symptoms = total_count['total_symptoms_count']
+        
+        # Get the matched symptoms count for the current disease
+        matched_count = next((match['matched_symptoms_count'] for match in matched_symptoms_counts if match['disease_id'] == disease_id), 0)
+
+        # Calculate match percentage
+        match_percentage = (matched_count / total_symptoms) * 100 if total_symptoms != 0 else 0
         percentage_matches[disease_id] = match_percentage
 
+    # Fetch matched diseases and their match percentages
     matched_diseases = Disease.objects.filter(id__in=matched_disease_ids)
 
     result = []
@@ -40,5 +50,23 @@ def get_matched_diseases(entered_symptoms):
 
     return result
 
-
-
+def process_disease(request, disease_id=None):
+    if request.method == 'POST':
+        # If it's a POST request, process the form data
+        disease_name = request.POST.get('disease')
+        matched_disease = Disease.objects.filter(name__icontains=disease_name).first()
+        
+        if matched_disease:
+            symptoms = Symptom.objects.filter(diseasesymptom__disease=matched_disease)
+            return render(request, 'disease_symptoms.html', {'disease': matched_disease, 'symptoms': symptoms})
+        else:
+            return render(request, 'no_matching_disease.html')
+    else:
+        # If it's not a POST request, check if a disease ID is provided
+        if disease_id is not None:
+            disease = get_object_or_404(Disease, pk=disease_id)
+            symptoms = Symptom.objects.filter(diseasesymptom__disease=disease)
+            return render(request, 'disease_symptoms.html', {'disease': disease, 'symptoms': symptoms})
+        else:
+            # If no disease ID is provided, render the default form
+            return render(request, 'disease_form.html')
