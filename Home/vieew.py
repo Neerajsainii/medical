@@ -1,16 +1,19 @@
 from django.shortcuts import render
 
-def Home(request):
+def home(request):
     return render(request,'index.html')
-
-def symptoms(request):
-    return render(request,'symptoms.html')
 
 def about(request):
     return render (request,'about.html')
 
-def home(request):
-    return render(request,'home.html')
+def emergency(request):
+    return render (request,'emergency.html')
+def Symptom(request):
+    return render(request,'Symptom.html')
+
+def symptoms(request):
+    return render(request,'symptoms.html')
+
 
 def contact(request):
     return render(request,'contact.html ')

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/symptoms.css">
+    <link rel="stylesheet" href="../static/css/symptoms.css">
     <title> Enter Symptoms</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
               <ul class="nav-btn ulcontent">
                   <li><div class="home-outline"><a class="nav-item"  href="./index.html" style="color: black;">Home</a></div></li>
                   <li><div class="about-outline"><a class="nav-item" href="./about.html">About</a></div></li>
-                  <li><div class="services-outline"><a class="nav-item" href="#">Services</a></div></li>
+                  <li><div class="services-outline"><a class="nav-item" href="./emergency.html">Services</a></div></li>
                   <li><div class="contact-outline"><a class="nav-item" href="./contact.html">Contact</a></div></li>
               </ul> 
              </div>
@@ -32,32 +32,29 @@
         <div class="body">
             <div class="top-body">
                 <div class="first boxx" >
-                    <a class="patient" href="./info.html">Patient Info</a>
+                    <a class="patient" href="">Patient Info</a>
                 </div>
                 <div class="second boxx" style="background-color: #59AAB5;">
-                    <a class="symptoms" href="./symptoms.html">Enter Symptoms</a>
+                    <a class="symptoms" href="">Enter Symptoms</a>
                 </div>
                 <div class="third boxx">
-                    <a class="disease" href="./disease.html">Probable Disease</a>
+                    <a class="disease" href="">Probable Disease</a>
                 </div>
                 <div class="fourth boxx">
-                    <a class="treatment" href="./treatment.html">Treatment</a>
+                    <a class="treatment" href="">Treatment</a>
                 </div>
             </div>
            
             <div class="bottom-body">
                 <img class="doc-img" src="./img/53efc602b1a165e637253bef8164edf9-removebg-preview.png" alt="">
                 <h1 class="information">Enter your Symptoms</h1>
-                <form id="symptomsForm" method="post" action="{% url 'process_symptoms' %}">
-                    {% csrf_token %}
-                    <label for="symptoms">Enter symptoms </label>
-                    <input class="input-symptoms" type="text" id="symptoms" name="symptoms">
-                    <br>
-                    <button type="submit">Submit</button>
+                <form action="" autocomplete="off">
+                    <input class="input-symptoms" type="text" id="input" required placeholder="Enter Symptoms">
                     <ul class="list"></ul>
                 </form>
                 
-                <!-- <div class="continue"><a href="./disease.html">Continue</a></div>              -->
+                <div class="continue"><a href="./disease.html">Continue</a></div>   
+                <div class="previous"><a href="./info.html">Previous</a></div>           
             </div>
         </div>
     </div>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/login.css">
-    <title>Log in</title>
+    <link rel="stylesheet" href="../static/css/disease.css">
+    <title>Probable Disease</title>
 </head>
 <body>
     <div class="header">
@@ -12,7 +12,7 @@
           <div class="left-nav">
               <img class="logo" src="./img/Group 130.png" alt="logo">
               <ul class="nav-btn ulcontent">
-                  <li><div class="home-outline"><a class="nav-item"  href="./index.html">Home</a></div></li>
+                  <li><div class="home-outline"><a class="nav-item"  href="./index.html" style="color: black;">Home</a></div></li>
                   <li><div class="about-outline"><a class="nav-item" href="./about.html">About</a></div></li>
                   <li><div class="services-outline"><a class="nav-item" href="./emergency.html">Services</a></div></li>
                   <li><div class="contact-outline"><a class="nav-item" href="./contact.html">Contact</a></div></li>
@@ -20,33 +20,53 @@
              </div>
              <div class="right-nav">
               <ul class="log">
-                  <li><div class="login-outline"><a class="login-signup" href="./login.html" style="color: black;">Log in</a></div></li>
-                  <li><div class="signup-outline"><a class="login-signup" href="./signup.html">Sign Up</a></div></li>
+                  <!-- <li><div class="login-outline"><a class="login-signup" href="#" >Log in</a></div></li> -->
+                  <li><div class="logout-outline"><a class="login-signup" href="./login.html">Logout</a></div></li>
               </ul>
              </div>
         </div>
-      </div>
-
+    </div>
 
     <div class="main-body">
         <div class="body">
-            <div class="left-body">
-                <img class="img" src="../static/img/3-Login.svg" alt="">
+            <div class="top-body">
+                <div class="first boxx" >
+                    <a class="patient" href="">Patient Info</a>
+                </div>
+                <div class="second boxx" >
+                    <a class="symptoms" href="">Enter Symptoms</a>
+                </div>
+                <div class="third boxx" style="background-color: #59AAB5;">
+                    <a class="disease" href="">Probable Disease</a>
+                </div>
+                <div class="fourth boxx">
+                    <a class="treatment" href="">Treatment</a>
+                </div>
             </div>
-            <div class="middle-body"></div>
-            <div class="right-body">
-                <input class="input-box" type="email" placeholder="Email*" required>
-                <input class="input-box" type="password" placeholder="Password*" required>
-                <div class="login-btn"><a href="./info.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Log in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div>
-                <div class="new-user"><a href="./signup.html">New User? <span style="text-decoration: underline;">Create new account</span></a></div>
+           
+            <div class="bottom-body">
+                <img class="doc-img" src="./img/53efc602b1a165e637253bef8164edf9-removebg-preview.png" alt="">
+                <h1 class="information">Diseases that matches your Symptoms</h1>
+                <div class="boxes">
+                <div class="symptom1"><a class="disease1" href="#">Disease 1</a></div>
+               <div class="symptom1"><a class="disease1" href="#">Disease 1</a></div>
+               <div class="symptom1"><a class="disease1" href="#">Disease 1</a></div>
+               <div class="symptom1"><a class="disease1" href="#">Disease 1</a></div>
+               <div class="symptom1"><a class="disease1" href="#">Disease 1</a></div>
+               <div class="symptom1"><a class="disease1" href="#">Disease 1</a></div>
+               <div class="symptom1"><a class="disease1" href="#">Disease 1</a></div>
+               <div class="symptom1"><a class="disease1" href="#">Disease 1</a></div>
+               <div class="symptom1"><a class="disease1" href="#">Disease 1</a></div>
+               <div class="symptom1"><a class="disease1" href="#">Disease 1</a></div>
+                </div>
+                
+                <div class="continue"><a href="./treatment.html">Continue</a></div>  
+                <div class="previous"><a href="./symptoms.html">Previous</a></div>            
             </div>
         </div>
     </div>
 
-
-
-
-      <div class="footer">
+    <div class="footer">
         <div class="top">
            <div class="top-left"> <h3 class="connected">Get Connected with us on social networks</h3>
         </div>
