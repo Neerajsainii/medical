@@ -8,8 +8,9 @@ def about(request):
 
 def emergency(request):
     return render (request,'emergency.html')
+
 def Symptom(request):
-    return render(request,'Symptom.html')
+    return render(request,'symptom.html')
 
 def symptoms(request):
     return render(request,'symptoms.html')

@@ -12,7 +12,7 @@ def process_symptoms(request):
         # print("Entered Symptoms:", entered_symptoms)
         matched_diseases = get_matched_diseases(entered_symptoms)
         # print(matched_diseases)
-        return render(request, 'matchdisease.html', {'matched_diseases': matched_diseases})
+        return render(request, 'disease.html', {'matched_diseases': matched_diseases})
     else:
         return render(request, 'index.html')
 
