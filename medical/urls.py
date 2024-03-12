@@ -17,6 +17,8 @@ urlpatterns = [
     path("contact/", vieew.contact ),
     path("infant/", vieew.infant),
     path("child/", vieew.child), 
+     path("treatment/", vieew.treatment),
+       path("disease/", vieew.disease),
     path('get_symptoms/<int:disease_id>/', view.get_symptoms, name='get_symptoms'),
     path('get_suggestions/', view.get_suggestions, name='get_suggestions'),
     path("info/", vieew.info),

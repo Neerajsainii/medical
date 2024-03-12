@@ -28,3 +28,9 @@ def child(request):
 
 def info(request):
     return render(request,'info.html ')
+
+def treatment(request):
+    return render(request,'treatment.html ')
+
+def disease(request):
+    return render(request,'disease.html ')
