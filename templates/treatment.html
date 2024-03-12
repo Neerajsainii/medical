@@ -1,18 +1,16 @@
-<!-- {% load static %} -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/treatment.css">
+    <link rel="stylesheet" href="../static/css/treatment.css">
     <title>Treatment</title>
 </head>
 <body>
     <div class="header">
         <div class="nav">
           <div class="left-nav">
-              <img class="logo" src="../../static/img/Group 130.png" alt="logo">
+              <img class="logo" src="./img/Group 130.png" alt="logo">
               <ul class="nav-btn ulcontent">
                   <li><div class="home-outline"><a class="nav-item"  href="./index.html" style="color: black;">Home</a></div></li>
                   <li><div class="about-outline"><a class="nav-item" href="./about.html">About</a></div></li>
@@ -22,8 +20,8 @@
              </div>
              <div class="right-nav">
               <ul class="log">
-                  <!-- <li><div class="login-outline"><a class="login-signup" href="#" >Log in</a></div></li> -->
-                  <li><div class="logout-outline"><a class="login-signup" href="./login.html">Logout</a></div></li>
+                <li><div class="login-outline"><a class="login-signup" href="/login">Log in</a></div></li>
+                <li><div class="signup-outline"><a class="login-signup" href="/signup">Sign Up</a></div></li>
               </ul>
              </div>
         </div>
@@ -32,17 +30,17 @@
     <div class="main-body">
         <div class="body">
             <div class="top-body">
-                <div class="first boxx" >
-                    <a class="patient" href="">Patient Info</a>
+                <div class="first boxx" style="background-color: #59AAB5;">
+                    <button class="patient" type="button">Patient Info</button>
                 </div>
-                <div class="second boxx" >
-                    <a class="symptoms" href="">Enter Symptoms</a>
+                <div class="second boxx">
+                    <button class="symptoms" type="button">Enter Symptoms</button>
                 </div>
                 <div class="third boxx">
-                    <a class="disease" href="">Probable Disease</a>
+                    <button class="disease" type="button">Probable Disease</button>
                 </div>
-                <div class="fourth boxx" style="background-color: #59AAB5;">
-                    <a class="treatment" href="">Treatment</a>
+                <div class="fourth boxx">
+                    <button class="treatment" type="button">Treatment</button>
                 </div>
             </div>
            
@@ -67,7 +65,7 @@
                         
                 <div class="continue"><a href="./info.html">Check Again</a></div>  
                 <div class="previous"><a href="./disease.html">Previous</a></div>            
-            </div>
+        
             </div>
         </div>
     </div>
@@ -77,11 +75,11 @@
         </div>
         <div class="top-right">
             <ul class="media">
-                <li class="apps"><a href="#"><img src="../../static/img/facebook.svg" alt=""></a></li>
-                <li class="apps"><a href="#"><img src="../../static/img/google.svg" alt=""></a></li>
-                <li class="apps"><a href="#"><img src="../../static/img/twitter.svg" alt=""></a></li>
-                <li class="apps"><a href="#"><img src="../../static/img/instagram.svg" alt=""></a></li>
-                <li class="apps"><a href="#"><img src="../../static/img/linkedin.svg" alt=""></a></li>
+                <li class="apps"><a href="#"><img src="./img/facebook.svg" alt=""></a></li>
+                <li class="apps"><a href="#"><img src="./img/google.svg" alt=""></a></li>
+                <li class="apps"><a href="#"><img src="./img/twitter.svg" alt=""></a></li>
+                <li class="apps"><a href="#"><img src="./img/instagram.svg" alt=""></a></li>
+                <li class="apps"><a href="#"><img src="./img/linkedin.svg" alt=""></a></li>
             </ul>
         </div>
         </div>
