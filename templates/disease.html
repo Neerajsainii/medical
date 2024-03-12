@@ -1,114 +1,109 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/disease.css" />
-    <title>Probable Disease</title>
-  </head>
-  <body>
-    <div class="header">
-      <div class="nav">
-        <div class="left-nav">
-          <img class="logo" src="../static/img/Group 130.png" alt="logo" />
-          <ul class="nav-btn ulcontent">
-            <li>
-              <div class="home-outline">
-                <a class="nav-item" href="./index.html" style="color: black"
-                  >Home</a
-                >
-              </div>
-            </li>
-            <li>
-              <div class="about-outline">
-                <a class="nav-item" href="./about.html">About</a>
-              </div>
-            </li>
-            <li>
-              <div class="services-outline">
-                <a class="nav-item" href="#">Services</a>
-              </div>
-            </li>
-            <li>
-              <div class="contact-outline">
-                <a class="nav-item" href="./contact.html">Contact</a>
-              </div>
-            </li>
-          </ul>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/css/disease.css" />
+  <title>Probable Disease</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="nav">
+      <div class="left-nav">
+        <img class="logo" src="../static/img/Group 130.png" alt="logo" />
+        <ul class="nav-btn ulcontent">
+          <li>
+            <div class="home-outline">
+              <a class="nav-item" href="./index.html" style="color: black">Home</a>
+            </div>
+          </li>
+          <li>
+            <div class="about-outline">
+              <a class="nav-item" href="./about.html">About</a>
+            </div>
+          </li>
+          <li>
+            <div class="services-outline">
+              <a class="nav-item" href="#">Services</a>
+            </div>
+          </li>
+          <li>
+            <div class="contact-outline">
+              <a class="nav-item" href="./contact.html">Contact</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="right-nav">
+        <ul class="log">
+          <li>
+            <div class="login-outline"><a class="login-signup" href="/login">Log in</a></div>
+          </li>
+          <li>
+            <div class="signup-outline"><a class="login-signup" href="/signup">Sign Up</a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-body">
+    <div class="body">
+      <div class="top-body">
+        <div class="first boxx" >
+            <button class="patient" type="button">Patient Info</button>
         </div>
-        <div class="right-nav">
-          <ul class="log">
-            <!-- <li><div class="login-outline"><a class="login-signup" href="#" >Log in</a></div></li> -->
-            <li>
-              <div class="logout-outline">
-                <a class="login-signup" href="./login.html">Logout</a>
+        <div class="second boxx">
+            <button class="symptoms" type="button">Enter Symptoms</button>
+        </div>
+        <div class="third boxx" style="background-color: #59AAB5;">
+            <button class="disease" type="button">Probable Disease</button>
+        </div>
+        <div class="fourth boxx">
+            <button class="treatment" type="button">Treatment</button>
+        </div>
+      </div>
+
+      <div class="bottom-body">
+        <img class="doc-img" src="../static/img/53efc602b1a165e637253bef8164edf9-removebg-preview.png" alt="" />
+        <h1 class="information">Diseases that match your Symptoms</h1>
+        <div class="boxes">
+          <div class="symptom-boxes">
+            {% if matched_diseases %}
+            {% for result in matched_diseases %}
+            <div class="symptom-box">
+              <a href="{% url 'disease_medicines' result.disease.id %}">
+                <buttom class="disease-name">{{ result.disease.name }}</button>
+              </a>
+              <p class="percentage-match">{{ result.percentage_match }}%</p>
+              <div class="sym-btn">
+                <button class="view-symptoms-btn" onclick="openModal('{{ result.disease.id }}')">View Symptoms</button>
               </div>
-            </li>
-          </ul>
+
+              <div id="myModal{{ result.disease.id }}" class="modal s-popup">
+                <div class="modal-content">
+                  <span class="close close-btn1" onclick="closeModal('{{ result.disease.id }}')">&times;</span>
+                  <h2>Symptoms of {{ result.disease.name }}</h2>
+                  <ul id="modalList{{ result.disease.id }}" class="symptom-list"></ul>
+                </div>
+              </div>
+
+
+
+            </div>
+            {% endfor %}
+            {% else %}
+            <p class="no-match">No diseases matched the entered symptoms.</p>
+            {% endif %}
+          </div>
+
+          <div class="continue"><a href="./treatment.html">Continue</a></div>
         </div>
       </div>
     </div>
-
-    <div class="main-body">
-      <div class="body">
-        <div class="top-body">
-          <div class="first boxx">
-            <a class="patient" href="./info.html">Patient Info</a>
-          </div>
-          <div class="second boxx">
-            <a class="symptoms" href="./symptoms.html">Enter Symptoms</a>
-          </div>
-          <div class="third boxx" style="background-color: #59aab5">
-            <a class="disease" href="./disease.html">Probable Disease</a>
-          </div>
-          <div class="fourth boxx">
-            <a class="treatment" href="./treatment.html">Treatment</a>
-          </div>
-        </div>
-
-        <div class="bottom-body">
-          <img
-            class="doc-img"
-            src="../static/img/53efc602b1a165e637253bef8164edf9-removebg-preview.png"
-            alt=""
-          />
-          <h1 class="information">Diseases that match your Symptoms</h1>
-          <div class="boxes">
-            <div class="symptom-boxes">
-              {% if matched_diseases %} 
-                  {% for result in matched_diseases %}
-                      <div class="symptom-box">
-                          <a href="{% url 'disease_medicines' result.disease.id %}">
-                              <buttom class="disease-name">{{ result.disease.name }}</button>
-                              </a>
-                              <p class="percentage-match">{{ result.percentage_match }}%</p>
-                          <div class="sym-btn">
-                            <button class="view-symptoms-btn" onclick="openModal('{{ result.disease.id }}')">View Symptoms</button>
-                          </div>
-                          
-                          <div id="myModal{{ result.disease.id }}" class="modal s-popup">
-                              <div class="modal-content">
-                                  <span class="close close-btn1" onclick="closeModal('{{ result.disease.id }}')">&times;</span>
-                                  <h2>Symptoms of {{ result.disease.name }}</h2>
-                                  <ul id="modalList{{ result.disease.id }}" class="symptom-list"></ul>
-                              </div>
-                          </div>
-
-                          
-
-                      </div>
-                  {% endfor %}
-              {% else %}
-                  <p class="no-match">No diseases matched the entered symptoms.</p>
-              {% endif %}
-          </div>
-          
-            <div class="continue"><a href="./treatment.html">Continue</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
 
     <div class="footer">
       <div class="top">
@@ -168,76 +163,71 @@
       </div>
     </div>
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const viewSymptomsButtons = document.querySelectorAll(".view-symptoms-btn");
-
-    viewSymptomsButtons.forEach(button => {
-        button.addEventListener("click", function () {
+      document.addEventListener("DOMContentLoaded", function () {
+        const viewSymptomsButtons = document.querySelectorAll(".view-symptoms-btn");
+  
+        viewSymptomsButtons.forEach(button => {
+          button.addEventListener("click", function () {
             const diseaseId = this.getAttribute("data-disease-id");
             openModal(diseaseId);
+          });
         });
-    });
-
-    const closeButtons = document.querySelectorAll(".close");
-
-    closeButtons.forEach(button => {
-        button.addEventListener("click", function () {
+  
+        const closeButtons = document.querySelectorAll(".close");
+  
+        closeButtons.forEach(button => {
+          button.addEventListener("click", function () {
             const diseaseId = this.getAttribute("data-disease-id");
             closeModal(diseaseId);
+          });
         });
-    });
-
-    document.addEventListener('click', function (event) {
-        const modalContent = document.querySelector('.modal-content');
-        if (!modalContent.contains(event.target)) {
+  
+        document.addEventListener('click', function (event) {
+          const modalContent = document.querySelector('.modal-content');
+          if (!modalContent.contains(event.target)) {
             const openModals = document.querySelectorAll('.modal');
             openModals.forEach(modal => {
-                closeModal(modal.getAttribute('data-disease-id'));
+              closeModal(modal.getAttribute('data-disease-id'));
             });
-        }
-    });
-});
-
-function openModal(diseaseId) {
-    fetch(`/get_symptoms/${diseaseId}`)
-        .then((response) => response.json())
-        .then((data) => {
+          }
+        });
+      });
+  
+      function openModal(diseaseId) {
+        fetch(`/get_symptoms/${diseaseId}`)
+          .then((response) => response.json())
+          .then((data) => {
             const modal = document.getElementById(`myModal${diseaseId}`);
             modal.style.display = "block";
             modal.setAttribute('data-disease-id', diseaseId);
-
+  
             const modalList = document.getElementById(`modalList${diseaseId}`);
             modalList.innerHTML = "";
             let arr = [];
             data.entered_symptoms.forEach((enteredSymptom) => {
-                const matchedSymptom = data.symptoms.find((symptom) => symptom.name === enteredSymptom);
-
-                if (matchedSymptom) {
-                    arr.push(matchedSymptom.name);
-                    modalList.innerHTML += `<li>${matchedSymptom.name}</li>`;
-                } else {
-                    modalList.innerHTML += `<li><s>${enteredSymptom}</s></li>`;
-                }
+              const matchedSymptom = data.symptoms.find((symptom) => symptom.name === enteredSymptom);
+  
+              if (matchedSymptom) {
+                arr.push(matchedSymptom.name);
+                modalList.innerHTML += `<li>${matchedSymptom.name}</li>`;
+              } else {
+                modalList.innerHTML += `<li><s>${enteredSymptom}</s></li>`;
+              }
             });
-
+  
             arr.forEach((matchedSymptomName) => {
             });
-        })
-        .catch((error) => console.error("Error fetching symptoms:", error));
-}
-
-
-function closeModal(diseaseId) {
-    const modal = document.getElementById(`myModal${diseaseId}`);
-    modal.style.display = "none";
-}
-
+          })
+          .catch((error) => console.error("Error fetching symptoms:", error));
+      }
+  
+  
+      function closeModal(diseaseId) {
+        const modal = document.getElementById(`myModal${diseaseId}`);
+        modal.style.display = "none";
+      }
+  
     </script>
-  </body>
+</body>
+
 </html>
-
-
-
-
-
-
