@@ -2,12 +2,12 @@ from django.shortcuts import render,get_object_or_404
 from django.db.models import Count
 from .models import Disease, Symptom , DiseaseSymptom
 from django.http import JsonResponse
-
+# entered_symptoms = []
 def process_symptoms(request):
     if request.method == 'POST':
        ######for string
         # entered_symptoms = request.POST.get('symptoms', '')
-
+        global entered_symptoms
         ########for list
         entered_symptoms = request.POST.get('symptoms', '').split(',')
         # print("Entered Symptoms:", entered_symptoms)
@@ -54,4 +54,5 @@ def get_matched_diseases(entered_symptoms):
 def get_symptoms(request, disease_id):
     symptoms = Symptom.objects.filter(diseasesymptom__disease_id=disease_id)
     symptom_data = [{'name': symptom.name} for symptom in symptoms]
-    return JsonResponse({'symptoms': symptom_data})
+    # print(entered_symptoms)
+    return JsonResponse({'symptoms': symptom_data, 'entered_symptoms':entered_symptoms})
