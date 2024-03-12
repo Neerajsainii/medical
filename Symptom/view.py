@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.db.models import Count
 from .models import Disease, Symptom , DiseaseSymptom
+from django.http import JsonResponse
 
 def process_symptoms(request):
     if request.method == 'POST':
@@ -50,23 +51,7 @@ def get_matched_diseases(entered_symptoms):
 
     return result
 
-def process_disease(request, disease_id=None):
-    if request.method == 'POST':
-        # If it's a POST request, process the form data
-        disease_name = request.POST.get('disease')
-        matched_disease = Disease.objects.filter(name__icontains=disease_name).first()
-        
-        if matched_disease:
-            symptoms = Symptom.objects.filter(diseasesymptom__disease=matched_disease)
-            return render(request, 'disease_symptoms.html', {'disease': matched_disease, 'symptoms': symptoms})
-        else:
-            return render(request, 'no_matching_disease.html')
-    else:
-        # If it's not a POST request, check if a disease ID is provided
-        if disease_id is not None:
-            disease = get_object_or_404(Disease, pk=disease_id)
-            symptoms = Symptom.objects.filter(diseasesymptom__disease=disease)
-            return render(request, 'disease_symptoms.html', {'disease': disease, 'symptoms': symptoms})
-        else:
-            # If no disease ID is provided, render the default form
-            return render(request, 'disease_form.html')
+def get_symptoms(request, disease_id):
+    symptoms = Symptom.objects.filter(diseasesymptom__disease_id=disease_id)
+    symptom_data = [{'name': symptom.name} for symptom in symptoms]
+    return JsonResponse({'symptoms': symptom_data})
