@@ -171,7 +171,7 @@
     border-radius: 25px;
     background-color: rgba(0, 0, 0, 0);
     display: flex;
-    gap: 50px;
+    gap: 15%;
     padding: 8px 35px;
     margin-right: 1.5rem;
 }
@@ -232,7 +232,70 @@
     border: 2px solid rgb(72, 71, 71);
     color: black;
     font-size: 1.5rem;
-    padding: 2px 20px;
+    padding: 2px 40px;
+}
+
+.search-box{
+    position: relative;
+}
+.search-icon{
+    position: absolute;
+    left: 4%;
+    top: 17%;
+    filter: invert(0.3);
+    
+}
+.search-btn{
+    position: absolute;
+    right: 58%;
+    top: 21%;
+    background-color: #188897;
+    border: none;
+    width: 7%;
+    height: 60%;
+    border-radius: 20px;
+}
+
+
+
+
+
+.symp-box {
+    display: inline-block; /* Adjusted to make the box take up only as much width as necessary */
+    min-width: fit-content; /* Ensures the box doesn't collapse when text is removed */
+    position: absolute;
+    /* border: 2px solid red; */
+    left: 50%;
+    top: 20%;
+}
+
+.symp-box li {
+    margin-top: 5%;
+    padding: 2%;
+    padding-right: 6%;
+    width: auto; /* Changed to auto to allow width to adjust */
+    /* border: 2px solid blue; */
+    border-radius: 25px;
+    font-size: 1.4rem;
+    background-color: #188897;
+    display: flex; /* Added to make list items flex containers */
+    align-items: center; /* Added to vertically center the content */
+}
+
+.symptom-text {
+    flex-grow: 1; /* Added to make text expand to fill available space */
+}
+
+.delete-button {
+    background-color: #18889700;
+    border: none;
+    margin-left: 30px; /* Adjust the margin as needed */
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.delete {
+    background-color: #18889700;
 }
 
 /* ----------------------------------------for symptoms--------------------------------------------------------------- */

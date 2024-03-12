@@ -172,7 +172,7 @@
     border-radius: 25px;
     background-color: rgba(0, 0, 0, 0);
     display: flex;
-    gap: 50px;
+    gap: 15%;
     padding: 8px 35px;
     margin-right: 1.5rem;
 }

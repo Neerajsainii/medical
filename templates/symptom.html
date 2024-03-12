@@ -32,9 +32,9 @@
     <div class="main-body">
         <div class="body">
           <div class="top-body">
-            <div class="first boxx" >
+            <!-- <div class="first boxx" >
                 <button class="patient" type="button">Patient Info</button>
-            </div>
+            </div> -->
             <div class="second boxx" style="background-color: #59AAB5;">
                 <button class="symptoms" type="button">Enter Symptoms</button>
             </div>
@@ -46,18 +46,47 @@
             </div>
           </div>
             <div class="bottom-body">
+                
+
+                <div class="symp-box">
+                    <ul>
+                        <li>
+                            <span class="symptom-text">Symptoms1</span>
+                            <button class="delete-button"><img class="delete" src="../static/img/delete.svg" alt=""></button>
+                        </li>
+                        <li>
+                            <span class="symptom-text">Symptoms2</span>
+                            <button class="delete-button"><img class="delete" src="../static/img/delete.svg" alt=""></button>
+                        </li>
+                        <li>
+                            <span class="symptom-text">Symptoms3</span>
+                            <button class="delete-button"><img class="delete" src="../static/img/delete.svg" alt=""></button>
+                        </li>
+                        <li>
+                            <span class="symptom-text">Symptoms4</span>
+                            <button class="delete-button"><img class="delete" src="../static/img/delete.svg" alt=""></button>
+                        </li>
+                    </ul>
+                </div>
+                
                 <img class="doc-img" src="../static/img/53efc602b1a165e637253bef8164edf9-removebg-preview.png" alt="">
-                <h1 class="information">Enter your Symptoms</h1>
+                <h1 class="information">Now Check your Disease</h1>
                 <form id="symptomsForm" method="post" action="{% url 'process_symptoms' %}">
                     {% csrf_token %}
                     <!-- <label for="symptoms">Enter symptoms </label> -->
-                    <input class="input-symptoms" type="text" id="symptoms" name="symptoms">
+                    <div class="search-box">
+                        <div class="search-icon">
+                            <img src="../static/img/search.svg" alt="">
+                        </div>
+                        <input class="input-symptoms" type="text" id="symptoms" name="symptoms" placeholder="Enter Your Symptoms">
+                        <button class="search-btn">Search</button>
+                    </div>
                     <br>
-                    <button type="submit" class="continue">Submit</button>
+                    <!-- <button type="submit" class="continue"></button> -->
                     <ul class="list"></ul>
                 </form>
                 
-                <!-- <div class="continue"><a href="./disease.html">Continue</a></div>              -->
+                <div class="continue"><a href="/disease">Continue</a></div>             
             </div>
         </div>
     </div>
@@ -150,7 +179,37 @@
                 const list = document.querySelector('.list');
                 list.innerHTML = ''; // Clear suggestions if input is empty
             }
+
         });
+
+        document.getElementById('symptomsForm').addEventListener('submit', function(event) {
+        const inputField = document.getElementById('symptoms');
+        const inputText = inputField.value.trim();
+
+        if (inputText === '') {
+            alert('Please enter valid symptoms before submitting');
+            event.preventDefault(); 
+        } 
+    });
+
+    document.getElementById('symptoms').addEventListener('input', function(event) {
+        const inputText = event.target.value.trim();
+        const terms = inputText.split(',');
+        const lastTerm = terms.pop().trim();
+        
+        if (lastTerm !== '') {
+            fetchSuggestions(lastTerm);
+        } else {
+            const list = document.querySelector('.list');
+            list.innerHTML = ''; 
+        }
+    });
+
+    window.onload = function() {
+    const inputField = document.getElementById('symptoms');
+    inputField.value = '';
+
+};
     </script>
 </body>
 </html>
