@@ -56,3 +56,9 @@ def get_symptoms(request, disease_id):
     symptom_data = [{'name': symptom.name} for symptom in symptoms]
     # print(entered_symptoms)
     return JsonResponse({'symptoms': symptom_data, 'entered_symptoms':entered_symptoms})
+
+def get_suggestions(request):
+    query = request.GET.get('query', '')
+    suggestions = Symptom.objects.filter(name__icontains=query).values_list('name', flat=True)
+    return JsonResponse(list(suggestions), safe=False)
+
