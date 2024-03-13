@@ -5,6 +5,43 @@
 }
 
 /* ##################################################################### HEADER ######################################################### */
+.nav-item {
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0000009f;
+    min-width: 300px;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #000000;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
 .header{
     height: 3.5rem;
     width: 100%;
@@ -51,12 +88,12 @@
     padding: 5px 8px;
     border-radius: 25px;
     width: 70px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     cursor: pointer;
 }
 .home-outline:hover{
     transform: translate(0px, -3px);
-    /* background-color: rgb(60, 60, 60); */
+    background-color: rgb(60, 60, 60);
 }
 
 .about-outline{
@@ -79,12 +116,12 @@
     margin-right: 20px;
     padding: 5px 8px;
     border-radius: 25px;
-    width: 84px;
-    background-color: rgb(0, 0, 0);
+    width: 100px;
+    background-color: rgb(255, 255, 255);
     cursor: pointer;
 }
 .services-outline:hover{
-    background-color: rgb(60, 60, 60);
+    /* background-color: rgb(60, 60, 60); */
     transform: translate(0px, -3px);
 }
 
