@@ -47,50 +47,27 @@
           </div>
             <div class="bottom-body">
                 
-
-                <!-- <div class="symp-box">
-                    <ul>
-                        <li>
-                            <span class="symptom-text">Symptoms1</span>
-                            <button class="delete-button"><img class="delete" src="../static/img/delete.svg" alt=""></button>
-                        </li>
-                        <li>
-                            <span class="symptom-text">Symptoms2</span>
-                            <button class="delete-button"><img class="delete" src="../static/img/delete.svg" alt=""></button>
-                        </li>
-                        <li>
-                            <span class="symptom-text">Symptoms3</span>
-                            <button class="delete-button"><img class="delete" src="../static/img/delete.svg" alt=""></button>
-                        </li>
-                        <li>
-                            <span class="symptom-text">Symptoms4</span>
-                            <button class="delete-button"><img class="delete" src="../static/img/delete.svg" alt=""></button>
-                        </li>
-                    </ul>
-                </div> -->
-                
-                <img class="doc-img" src="../static/img/53efc602b1a165e637253bef8164edf9-removebg-preview.png" alt="">
+                <img class="doc-img" src="../../static/img/53efc602b1a165e637253bef8164edf9-removebg-preview.png" alt="">
                 <h1 class="information">Check Your Disease Now </h1>
                 <form id="symptomsForm" method="post" action="{% url 'process_symptoms' %}">
                     {% csrf_token %}
-                    <!-- <label for="symptoms">Enter symptoms </label> -->
                     <div class="search-box">
-                        <div class="search-icon">
-                            <img src="../static/img/search.svg" alt="">
+                        <div id="search-icon" class="search-icon"> 
+                            <img src="../../static/img/search.svg" alt="">
                         </div>
                         <input class="input-symptoms" type="text" id="symptoms" name="symptoms" placeholder="Enter Your Symptoms">
-                        <button class="search-btn">Search</button>
+                        <button id="search-bt" class="search-btn">Add</button>
                     </div>
                     <br>
-                    <!-- <button type="submit" class="continue"></button> -->
-                    <ul class="list"></ul>
+                    <ul class="list"></ul> 
                 </form>
+                 
+                
                 
                 <div class="continue"><a href="/disease">Continue</a></div>             
             </div>
         </div>
     </div>
-</div>
 
 
 
@@ -139,76 +116,73 @@
         </div>
     </div>
     <script>
-        // Function to fetch suggestions
-        function fetchSuggestions(query) {
-            fetch(`/get_suggestions?query=${query}`)
-                .then(response => response.json())
-                .then(data => {
-                    const list = document.querySelector('.list');
-                    list.innerHTML = ''; // Clear previous suggestions
-        
-                    data.forEach(suggestion => {
-                        const listItem = document.createElement('li');
-                        listItem.textContent = suggestion;
-                        listItem.addEventListener('click', function() {
-                            const inputField = document.getElementById('symptoms');
-                            const cursorPosition = inputField.selectionStart;
-                            const textBeforeCursor = inputField.value.substring(0, cursorPosition);
-                            const textAfterCursor = inputField.value.substring(cursorPosition);
-                            const lastCommaIndex = textBeforeCursor.lastIndexOf(',');
-                            const textBeforeLastComma = textBeforeCursor.substring(0, lastCommaIndex + 1);
-                            inputField.value = textBeforeLastComma + suggestion + textAfterCursor;
-                            inputField.focus();
-                            inputField.setSelectionRange(textBeforeLastComma.length + suggestion.length, textBeforeLastComma.length + suggestion.length);
-                            list.innerHTML = '';
-                        });
-                        list.appendChild(listItem);
-                    });
-                })
-                .catch(error => console.error('Error fetching suggestions:', error));
-        }
-        
-        // Event listener for input field
-        document.getElementById('symptoms').addEventListener('input', function(event) {
-            const inputText = event.target.value.trim();
-            const terms = inputText.split(',');
-            const lastTerm = terms.pop().trim();
-            if (lastTerm !== '') {
-                fetchSuggestions(lastTerm);
-            } else {
+    function fetchSuggestions(query) {
+        fetch(`/get_suggestions?query=${query}`)
+            .then(response => response.json())
+            .then(data => {
                 const list = document.querySelector('.list');
-                list.innerHTML = ''; // Clear suggestions if input is empty
-            }
+                list.innerHTML = '';
+                data.sort((a, b) => a.localeCompare(b));
 
-        });
+                data.forEach(suggestion => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = suggestion;
+                    listItem.classList.add('suggestion-item'); 
+                    listItem.addEventListener('click', function() {
+                        const inputField = document.getElementById('symptoms');
+                        const cursorPosition = inputField.selectionStart;
+                        const textBeforeCursor = inputField.value.substring(0, cursorPosition);
+                        const textAfterCursor = inputField.value.substring(cursorPosition);
+                        const lastCommaIndex = textBeforeCursor.lastIndexOf(',');
+                        const textBeforeLastComma = textBeforeCursor.substring(0, lastCommaIndex + 1);
+                        inputField.value = textBeforeLastComma + suggestion + textAfterCursor;
+                        inputField.focus();
+                        inputField.setSelectionRange(textBeforeLastComma.length + suggestion.length,    textBeforeLastComma.length + suggestion.length);
+                        list.innerHTML = '';
+                    });
+                    list.appendChild(listItem);
+                });
+            }).catch(error => console.error('Error fetching suggestions:', error));
+    }
 
-        document.getElementById('symptomsForm').addEventListener('submit', function(event) {
-        const inputField = document.getElementById('symptoms');
-        const inputText = inputField.value.trim();
+document.getElementById('symptoms').addEventListener('input', function(event) {
+    const inputText = event.target.value.trim();
+    const terms = inputText.split(',');
+    const lastTerm = terms.pop().trim();
+    if (lastTerm !== '') {
+        fetchSuggestions(lastTerm);
+    } else {
+        const list = document.querySelector('.list');
+        list.innerHTML = ''; 
+    }
+});
+document.getElementById('symptomsForm').addEventListener('submit', function(event) {
+    const inputField = document.getElementById('symptoms');
+    const inputText = inputField.value.trim();
 
-        if (inputText === '') {
-            alert('Please enter valid symptoms before submitting');
-            event.preventDefault(); 
-        } 
-    });
+    if (inputText === '') {
+        alert('Please enter valid symptoms before submitting');
+        event.preventDefault(); 
+    } 
+});
 
-    document.getElementById('symptoms').addEventListener('input', function(event) {
-        const inputText = event.target.value.trim();
-        const terms = inputText.split(',');
-        const lastTerm = terms.pop().trim();
-        
-        if (lastTerm !== '') {
-            fetchSuggestions(lastTerm);
-        } else {
-            const list = document.querySelector('.list');
-            list.innerHTML = ''; 
-        }
-    });
+document.getElementById('symptoms').addEventListener('input', function(event) {
+    const inputText = event.target.value.trim();
+    const terms = inputText.split(',');
+    const lastTerm = terms.pop().trim();
+    
+    if (lastTerm !== '') {
+        fetchSuggestions(lastTerm);
+    } else {
+        const list = document.querySelector('.list');
+        list.innerHTML = ''; 
+    }
+});
 
-    window.onload = function() {
+
+window.onload = function() {
     const inputField = document.getElementById('symptoms');
     inputField.value = '';
-
 };
     </script>
 </body>
