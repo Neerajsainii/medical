@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/login.css">
-    <title>Log in</title>
+    <link rel="stylesheet" href="../static/css/bmi.css">
+    <title>BMI Calculator</title>
 </head>
 
 <body>
@@ -15,13 +15,14 @@
                 <img class="logo" src="../static/img/Group 130.png" alt="logo">
                 <ul class="nav-btn ulcontent">
                     <li>
-                        <div class="home-outline"><a class="nav-item" href="/">Home</a></div>
+                        <div class="home-outline"><a class="nav-item" href="./index.html">Home</a></div>
                     </li>
                     <li>
-                        <div class="about-outline"><a class="nav-item" href="/about">About</a></div>
+                        <div class="about-outline"><a class="nav-item" href="./about.html">About</a></div>
                     </li>
                     <li class="dropdown">
-                        <div class="services-outline"><a class="nav-item" href="#">Services &#9662;</a></div>
+                        <div class="services-outline"><a class="nav-item" href="#" style="color: black;">Services
+                                &#9662;</a></div>
                         <div class="dropdown-content">
                             <a href="/emergency">Emergency</a>
                             <a href="">Symptom &rArr; Disease &rArr; Medicine</a>
@@ -32,15 +33,14 @@
                         </div>
                     </li>
                     <li>
-                        <div class="contact-outline"><a class="nav-item" href="/contact">Contact</a></div>
+                        <div class="contact-outline"><a class="nav-item" href="./contact.html">Contact</a></div>
                     </li>
                 </ul>
             </div>
             <div class="right-nav">
                 <ul class="log">
                     <li>
-                        <div class="login-outline"><a class="login-signup" href="/login" style="color: black;">Log
-                                in</a></div>
+                        <div class="login-outline"><a class="login-signup" href="/login">Log in</a></div>
                     </li>
                     <li>
                         <div class="signup-outline"><a class="login-signup" href="/signup">Sign Up</a></div>
@@ -49,29 +49,35 @@
             </div>
         </div>
     </div>
-
-
     <div class="main-body">
         <div class="body">
-            <div class="left-body">
-                <img class="img" src="../static/img/3-Login.svg" alt="">
+            <div class="top-body">
+                <h1>BMI Calculator</h1>
+                <hr color="black">
             </div>
-            <div class="middle-body"></div>
-            <div class="right-body">
-                <input class="input-box" type="email" placeholder="Email*" required>
-                <input class="input-box" type="password" placeholder="Password*" required>
-                <div class="login-btn"><a
-                        href="/symptom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Log
-                        in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+            <div class="bottom-body">
+
+                <div class="bottom-left">
+                    <form>
+                        <p><label class="height-weight">Height in CM: </label><input class="hw-input" type="number"
+                                id="height" /></p>
+                        <p><label class="height-weight">Weight in KG: </label><input class="hw-input" type="number"
+                                id="weight" /></p>
+                        <button class="calc-btn">Calculate</button>
+                        <p class="bmi"><span id="bmiResult"></span></p>
+                        
+                    </form>
                 </div>
-                <div class="new-user"><a href="/signup">New User? <span style="text-decoration: underline;">Create new
-                            account</span></a></div>
+                <div id="weight-guide" class="bottom-right">
+                    <h3>BMI Weight Guide</h3>
+                    <p>Under Weight = Less than 18.6</p>
+                    <p>Normal Range = 18.6 and 24.9</p>
+                    <p>Overweight = Greater than 24.9</p>
+                </div>
             </div>
         </div>
     </div>
-
-
-
 
     <div class="footer">
         <div class="top">
@@ -118,6 +124,37 @@
             </ul>
         </div>
     </div>
+    <script>
+        document.querySelector('.calc-btn').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    var heightInput = document.getElementById('height');
+    var weightInput = document.getElementById('weight');
+
+    // Check if height or weight input is empty
+    if (heightInput.value.trim() === '' || weightInput.value.trim() === '') {
+        alert("Please enter both height and weight values.");
+        return; // Stop further execution
+    }
+
+    var height = parseFloat(heightInput.value);
+    var weight = parseFloat(weightInput.value);
+
+    // Validation for height and weight ranges
+    if (height < 0 || height > 200 || weight < 0 || weight > 150) {
+        alert("Please enter valid height (0-200) and weight (0-150) values.");
+        return; // Stop further execution
+    }
+
+    var bmi = weight / ((height / 100) * (height / 100));
+
+    // Display BMI result
+    document.getElementById('bmiResult').textContent = "Your BMI: " + bmi.toFixed(1);
+});
+
+
+
+    </script>
 </body>
 
 </html>
