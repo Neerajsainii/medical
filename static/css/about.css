@@ -187,20 +187,23 @@
 
 .main-body{
     background-image: url("../img/background.png");
-    height: 750px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1600px;
     width: 100%;
     position: relative;
+    
 }
 
 .about-box{
     position: absolute;
     border: 2px solid rgba(0, 0, 0, 0.375);
     border-radius: 25px;
-    width: 55%;
+    width: 65%;
     /* max-height: 600px;
     overflow-y: auto; */
     top: 10%;
-    left: 5%;
+    left: 15%;
     padding: 2%; 
 }
 
@@ -229,6 +232,63 @@
     border: 2px solid black;
     border-radius: 10px;
 }
+
+/* ########################################################### FAQs ################################################ */
+
+/* Style for the accordion container */
+/* Adjusting the main accordion container positioning */
+.faq{
+    font-size: 3rem;
+    margin-bottom: 35px;
+    margin-left: 290px;
+    text-decoration: underline;
+}
+
+.accordian {
+    position: absolute;
+    top: calc(20% + 600px); /* Adjust this value based on the height of the about-box plus any desired margin */
+    left: 20%; /* Aligns with the left of the about-box */
+    width: 55%; /* Matches the about-box width, adjust as necessary */
+    padding: 2%; /* Optional, for internal spacing */
+}
+
+/* Updating accordion width to match new layout */
+.accordion {
+    width: 100%; /* Takes the full width of its parent, which is now .accordian */
+    
+}
+
+/* Additional adjustments if needed for spacing or visual consistency */
+.accordion-item {
+    width: 100%; /* Ensure accordion items fill the container */
+    box-sizing: border-box; /* Include padding and borders in the element's total width */
+    border: 3px solid #1b1919;
+    margin-bottom: 5px; /* Keeps space between accordion items */
+    border-radius: 10px; /* Adds rounded corners */
+    padding: 10px;
+   
+}
+
+.accordion-header {
+    font-size: 25px;
+    background-color: #f1f1f100;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the accordion item content (hidden by default) */
+.accordion-content {
+    font-size: 20px;
+    display: none;
+    padding: 10px;
+}
+#toggle-icon-1{
+    font-size: 25px;   
+}
+
 
 
 
