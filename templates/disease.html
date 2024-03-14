@@ -183,7 +183,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         const viewSymptomsButtons = document.querySelectorAll(".view-symptoms-btn");
         const matchSymptomsButtons = document.querySelectorAll(".match-symptoms-btn");
-  
+    
         viewSymptomsButtons.forEach(button => {
           button.addEventListener("click", function () {
             const diseaseId = this.getAttribute("data-disease-id");
@@ -196,27 +196,28 @@
             openModals(diseaseId);
           });
         });
-  
+    
         const closeButtons = document.querySelectorAll(".close");
-  
+    
         closeButtons.forEach(button => {
           button.addEventListener("click", function () {
             const diseaseId = this.getAttribute("data-disease-id");
             closeModal(diseaseId);
           });
         });
-  
-        document.addEventListener('click', function (event) {
-          const modalContent = document.querySelector('.modal-content');
-          if (!modalContent.contains(event.target)) {
-            const openModals = document.querySelectorAll('.modal');
-            openModals.forEach(modal => {
+    
+        // Add event listener to all modals to close them when clicking outside
+        const openModals = document.querySelectorAll('.modal');
+        openModals.forEach(modal => {
+          modal.addEventListener('click', function (event) {
+            const modalContent = this.querySelector('.modal-content');
+            if (!modalContent.contains(event.target)) {
               closeModal(modal.getAttribute('data-disease-id'));
-            });
-          }
+            }
+          });
         });
       });
-  
+    
       function openModal(diseaseId) {
         fetch(`/get_symptoms/${diseaseId}`)
           .then((response) => response.json())
@@ -224,13 +225,13 @@
             const modal = document.getElementById(`myModal${diseaseId}`);
             modal.style.display = "block";
             modal.setAttribute('data-disease-id', diseaseId);
-  
+    
             const modalList = document.getElementById(`modalList${diseaseId}`);
             modalList.innerHTML = "";
             let arr = [];
             data.entered_symptoms.forEach((enteredSymptom) => {
               const matchedSymptom = data.symptoms.find((symptom) => symptom.name === enteredSymptom);
-  
+    
               if (matchedSymptom) {
                 arr.push(matchedSymptom.name);
                 modalList.innerHTML += `<li>${matchedSymptom.name}</li>`;
@@ -238,12 +239,12 @@
                 modalList.innerHTML += `<li><s>${enteredSymptom}</s></li>`;
               }
             });
-  
-            arr.forEach((matchedSymptomName) => {
-            });
+    
+            arr.forEach((matchedSymptomName) => {});
           })
           .catch((error) => console.error("Error fetching symptoms:", error));
       }
+    
       function openModals(diseaseId) {
         fetch(`/get_symptoms/${diseaseId}`)
           .then((response) => response.json())
@@ -251,23 +252,22 @@
             const modal = document.getElementById(`myModal${diseaseId}`);
             modal.style.display = "block";
             modal.setAttribute('data-disease-id', diseaseId);
-  
+    
             const modalList = document.getElementById(`modalList${diseaseId}`);
             modalList.innerHTML = "";
-            let arr = [];
             data.symptoms.forEach((symptom) => {
               modalList.innerHTML += `<li>${symptom.name}</li>`;
             });
           })
           .catch((error) => console.error("Error fetching symptoms:", error));
       }
-  
+    
       function closeModal(diseaseId) {
         const modal = document.getElementById(`myModal${diseaseId}`);
         modal.style.display = "none";
       }
-  
     </script>
+    
 </body>
 
 </html>
