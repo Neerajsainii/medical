@@ -1,12 +1,10 @@
-<!-- {% load static %} -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/treatment.css">
-    <title>Treatment</title>
+    <link rel="stylesheet" href="../../static/w_css/w_info.css">
+    <title>Patient Info</title>
 </head>
 <body>
     <div class="header">
@@ -14,8 +12,8 @@
           <div class="left-nav">
               <img class="logo" src="../../static/img/Group 130.png" alt="logo">
               <ul class="nav-btn ulcontent">
-                  <li><div class="home-outline"><a class="nav-item"  href="/">Home</a></div></li>
-                  <li><div class="about-outline"><a class="nav-item" href="/about">About</a></div></li>
+                  <li><div class="home-outline"><a class="nav-item"  href="./index.html">Home</a></div></li>
+                  <li><div class="about-outline"><a class="nav-item" href="./about.html">About</a></div></li>
                   <li class="dropdown">
                     <div class="services-outline"><a class="nav-item" href="#" style="color: black;">Services &#9662;</a></div>
                     <div class="dropdown-content">
@@ -28,60 +26,51 @@
                         <!-- Add more service links here -->
                     </div>
                 </li>
-                  <li><div class="contact-outline"><a class="nav-item" href="/contact">Contact</a></div></li>
+                  <li><div class="contact-outline"><a class="nav-item" href="./contact.html">Contact</a></div></li>
               </ul> 
              </div>
              <div class="right-nav">
               <ul class="log">
-                <li><div class="login-outline"><a class="login-signup" href="/login">Log in</a></div></li>
-                <li><div class="signup-outline"><a class="login-signup" href="/signup">Sign Up</a></div></li>
+                <li class="user-dropdown">
+                    <div class="person-outline"><a class="user-nav-item" href="#" ><img src="../../static/img/person.svg" alt=""></a></div>
+                    <div class="user-dropdown-content">
+                        <a href=""><img src="../../static/img/edit_profile.svg" alt="">&nbsp;&nbsp;&nbsp;&nbsp;Edit Profile</a>
+                        <a href=""><img src="../../static/img/logout.svg" alt="">&nbsp;&nbsp;&nbsp;&nbsp;Logout</a>
+                        <!-- Add more service links here -->
+                    </div>
+                </li>
               </ul>
              </div>
         </div>
     </div>
-
     <div class="main-body">
         <div class="body">
             <div class="top-body">
-                <!-- <div class="first boxx" >
-                    <button class="patient" type="button">Patient Info</button>
-                </div> -->
+                <div class="first boxx" style="background-color: #59AAB5;">
+                    <a class="patient" href="#">Our Facility</a>
+                </div>
                 <div class="second boxx">
                     <button class="symptoms" type="button">Enter Symptoms</button>
                 </div>
                 <div class="third boxx">
                     <button class="disease" type="button">Probable Disease</button>
                 </div>
-                <div class="fourth boxx" style="background-color: #59AAB5;">
+                <div class="fourth boxx">
                     <button class="treatment" type="button">Treatment</button>
                 </div>
             </div>
            
-            <div class="bottom-body medicine-boxes-container">
-                <img class="doc-img" src="../../static/img/53efc602b1a165e637253bef8164edf9-removebg-preview.png" alt="">
-                <h1 class="information">Treatment (Suggested Medicine)</h1>
-                <div class="boxes">
-                    <h1>{{ disease.name }} Medicines</h1>
-                    <div class="medicine-boxes">
-                    {% if medicines %}
-                        <ul>
-                            {% for medicine in medicines %}
-                            <div class="medicine-box">
-                                <ul>{{ medicine.medicine.name }}</ul>
-                            </div>
-                            {% endfor %}
-                        </ul>
-                    {% else %}
-                        <p>No medicines associated with this disease.</p>
-                    {% endif %}
-                </div>
-                        
-                <div class="continue"><a href="/symptom">Check Again</a></div>  
-                <div class="previous"><a href="/disease">Previous</a></div>            
-        
+            <div class="bottom-body">
+                 
+                <ul class="facility-btn">
+                    <li><a href="./w_symptom.html"><button class="our-btn">Symptom &rArr; Disease &rArr; Medicine</button></a></li>
+                    <li><a href="./w_disease.html"><button class="our-btn">Disease &rArr; Medicine</button></a></li>
+                    <li><a href="./w_disease_symptom.html"><button class="our-btn">Disease &rArr; Symptoms</button></a></li>
+                    
+                </ul> 
+                            
             </div>
         </div>
-    </div>
     </div>
 
     <div class="footer">
