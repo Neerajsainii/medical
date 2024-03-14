@@ -42,12 +42,14 @@
             <div class="contact-heading">
                 <h1 class="contact">Contact Us</h1>
             </div>
-            <form action="submit_contact.php" method="POST">
+            <form action="{% url 'contact' %}" method="POST">
+                {% csrf_token %}
                 <input class="input-name" type="text" name="full_name" placeholder="Full Name*" required>
-                <input class="input-email" type="email" name="email" placeholder="Email*" required>
-                <textarea class="input-message" name="message" cols="30" rows="10">Write a message...</textarea>
+                <input class="input-name" type="email" name="email" placeholder="Email*" required>
+                <textarea class="input-message" name="message" cols="20" rows="8" placeholder="Write a message..."></textarea>
                 <button type="submit" class="send-msg">Send Message</button>
             </form>
+        </div>
     </div>
 
     <div class="footer">

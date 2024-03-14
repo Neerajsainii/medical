@@ -1,13 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password, check_password
-# from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import authenticate, login, logout
-from .models import UserSignup
+from .models import UserSignup,Contact
 
 def userSignup(request):
     if request.method == 'POST':
-        # Handle form submission logic here
         user_data = {
             'firstname': request.POST.get('firstname'),
             'lastname': request.POST.get('lastname'),
@@ -17,19 +15,14 @@ def userSignup(request):
             'password': request.POST.get('password'),
             'repassword': request.POST.get('repassword'),
         }
-
-        # Check if a user with the same email already exists
         if UserSignup.objects.filter(email=user_data['email']).exists():
             return HttpResponse('User with this email already exists. Please choose a different one.')
 
-        # Check if password and repassword match
         if user_data['password'] != user_data['repassword']:
             return HttpResponse('Passwords do not match. Please try again.')
 
-        # Hash the password before saving to the database
         hashed_password = make_password(user_data['password'])
 
-        # Save data to the database using the model
         user = UserSignup(
             firstname=user_data['firstname'],
             lastname=user_data['lastname'],
@@ -41,8 +34,7 @@ def userSignup(request):
         user.save()
         print('User signed up successfully!')
 
-        # Redirect to a success page or home page
-        return redirect('Home')  # 'Home' is the name of your home URL pattern
+        return redirect('home') 
 
     return render(request, 'signup.html')
 
@@ -58,7 +50,7 @@ def userLogin(request):
 
         if user is not None:
             login(request, user)
-            return redirect('Home')
+            return redirect('home')
         else:
             return HttpResponse('Invalid login credentials. Please try again.')
 
@@ -66,7 +58,30 @@ def userLogin(request):
 
 def userLogout(request):
     logout(request)
-    return redirect('Home')
+    return redirect('home')
 
-def Home(request):
-    return render(request,'index.html')
+def contact(request):
+    if request.method == 'POST':
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        # Create a new Contact object
+        contact = Contact.objects.create(
+            full_name=full_name,
+            email=email,
+            message=message
+        )
+        
+        # Optionally, you can perform additional validations here
+        
+        # Save the Contact object
+        contact.save()
+
+        return redirect('home')  # Redirect to the same page after form submission
+    
+    return render(request, 'home.html')
+
+
+def home(request):
+    return render(request,'index1.html')

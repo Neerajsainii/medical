@@ -236,13 +236,14 @@
     height: 9%;
     /* border: 2px solid black; */
     margin: 0% 15%;
-    margin-top: 8%;
+    /* margin-top: 8%; */
     border-radius: 25px;
     background-color: #59AAB5;
     text-align: center;
-    padding-top: 8px;
+    padding-bottom: 3px;
     font-size: 1.5rem;
     cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
 }
 .login-btn a{
     text-decoration: none;

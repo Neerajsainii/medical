@@ -45,16 +45,17 @@
             <div class="right-body">
                 <form method="post" action="{% url 'userSignup' %}">
                     {% csrf_token %}
-                    <input class="first-name" type="text" placeholder="First Name*" name="first_name" value="{{ user.first_name }}" required>
-                    <input class="last-name" type="text" placeholder="Last Name*" name="last_name" value="{{ user.last_name }}" required>
+                    <input class="first-name" type="text" placeholder="First Name*" name="firstname" value="{{ user.first_name }}" required>
+                    <input class="last-name" type="text" placeholder="Last Name*" name="lastname" value="{{ user.last_name }}" required>
                     <input class="age" type="number" placeholder="Age*" name="age" value="{{ user.age }}" required>
                     <input class="gender" type="text" placeholder="Gender*" name="gender" value="{{ user.gender }}" required>
                     <input class="email" type="email" placeholder="Email*" name="email" value="{{ user.email }}" required>
                     <input class="number" type="number" placeholder="Mobile Number*" name="mobile_number" value="{{ user.mobile_number }}" required>
-                    <input class="password" type="password" placeholder="New Password" name="password">
-                    <input class="re-enter-password" type="password" placeholder="Re-Enter New Password" name="re_enter_password">
-                    <button class="signup-btn"><a href="/login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign Up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></button>
+                    <input class="password" type="password" placeholder="New Password" name="password" required>
+                    <input class="re-enter-password" type="password" placeholder="Re-Enter New Password" name="repassword" required>
+                    <button class="signup-btn" type="submit">Sign in</button>
                 </form>
+                
                 
                 <div class="new-user"><a href="/login"><span style="text-decoration: underline;">Log in</span></a></div>
             </div>
