@@ -43,17 +43,19 @@
             </div>
             <div class="middle-body"></div>
             <div class="right-body">
-                <input class="first-name" type="text" placeholder="First Name*" required>
-                <input class="last-name" type="text" placeholder="Last Name*" required>
-                <input class="age" type="number" placeholder="Age*" required>
-                <input class="gender" type="text" placeholder="Gender*" required>
-                <input class="email" type="email" placeholder="Email*" required>
-                <input class="number" type="number" placeholder=" Mobile Number*" required>
-                <a class="otp" href="#">Get OTP</a>
-                <input class="enter-otp" type="number" placeholder="Enter OTP*" required>
-                <input class="password" type="password" placeholder="Password*" required>
-                <input class="re-enter-password" type="password" placeholder="Re-Enter Password*" required>
-                <div class="signup-btn"><a href="/login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign Up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div>
+                <form method="post" action="{% url 'userSignup' %}">
+                    {% csrf_token %}
+                    <input class="first-name" type="text" placeholder="First Name*" name="first_name" value="{{ user.first_name }}" required>
+                    <input class="last-name" type="text" placeholder="Last Name*" name="last_name" value="{{ user.last_name }}" required>
+                    <input class="age" type="number" placeholder="Age*" name="age" value="{{ user.age }}" required>
+                    <input class="gender" type="text" placeholder="Gender*" name="gender" value="{{ user.gender }}" required>
+                    <input class="email" type="email" placeholder="Email*" name="email" value="{{ user.email }}" required>
+                    <input class="number" type="number" placeholder="Mobile Number*" name="mobile_number" value="{{ user.mobile_number }}" required>
+                    <input class="password" type="password" placeholder="New Password" name="password">
+                    <input class="re-enter-password" type="password" placeholder="Re-Enter New Password" name="re_enter_password">
+                    <button class="signup-btn"><a href="/login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign Up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></button>
+                </form>
+                
                 <div class="new-user"><a href="/login"><span style="text-decoration: underline;">Log in</span></a></div>
             </div>
         </div>
