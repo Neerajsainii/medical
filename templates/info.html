@@ -12,27 +12,16 @@
           <div class="left-nav">
               <img class="logo" src="../static/img/Group 130.png" alt="logo">
               <ul class="nav-btn ulcontent">
-                  <li><div class="home-outline"><a class="nav-item"  href="./index.html">Home</a></div></li>
+                  <li><div class="home-outline"><a class="nav-item"  href="./index.html" style="color: black;">Home</a></div></li>
                   <li><div class="about-outline"><a class="nav-item" href="./about.html">About</a></div></li>
-                  <li class="dropdown">
-                    <div class="services-outline"><a class="nav-item" href="#" style="color: black;">Services &#9662;</a></div>
-                    <div class="dropdown-content">
-                        <a href="/emergency">Emergency</a>
-                        <a href="">Symptom &rArr; Disease &rArr; Medicine</a>
-                        <a href="">Disease &rArr; Medicine</a>
-                        <a href="">Disease &rArr; Symptoms</a>
-                        <a href=""> Calculate BMI</a>
-                        <a href=""> Precaution</a>
-                        <!-- Add more service links here -->
-                    </div>
-                </li>
+                  <li><div class="services-outline"><a class="nav-item" href="./emergency.html">Services</a></div></li>
                   <li><div class="contact-outline"><a class="nav-item" href="./contact.html">Contact</a></div></li>
               </ul> 
              </div>
              <div class="right-nav">
               <ul class="log">
-                <li><div class="login-outline"><a class="login-signup" href="/login">Log in</a></div></li>
-                <li><div class="signup-outline"><a class="login-signup" href="/signup">Sign Up</a></div></li>
+                  <!-- <li><div class="login-outline"><a class="login-signup" href="#" >Log in</a></div></li> -->
+                  <li><div class="logout-outline"><a class="login-signup" href="./login.html">Logout</a></div></li>
               </ul>
              </div>
         </div>
@@ -41,30 +30,34 @@
         <div class="body">
             <div class="top-body">
                 <div class="first boxx" style="background-color: #59AAB5;">
-                    <button class="patient" type="button">Patient Info</button>
+                    <a class="patient" href="">Patient Info</a>
                 </div>
                 <div class="second boxx">
-                    <button class="symptoms" type="button">Enter Symptoms</button>
+                    <a class="symptoms" href="">Enter Symptoms</a>
                 </div>
                 <div class="third boxx">
-                    <button class="disease" type="button">Probable Disease</button>
+                    <a class="disease" href="">Probable Disease</a>
                 </div>
                 <div class="fourth boxx">
-                    <button class="treatment" type="button">Treatment</button>
+                    <a class="treatment" href="">Treatment</a>
                 </div>
             </div>
            
             <div class="bottom-body">
-                <img class="doc-img" src="./img/53efc602b1a165e637253bef8164edf9-removebg-preview.png" alt="">
+                <img class="doc-img" src="../static/img/53efc602b1a165e637253bef8164edf9-removebg-preview.png" alt="">
                 <h1 class="information">Patient Information</h1>
-                <label class="label" for="">Age(in Yrs):&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input class="label-input" type="number" placeholder="" required> <br>   
-                <label class="label" for="">Weight(in Kg):</label>
-                <input class="label-input" type="number" placeholder="" required> <br>
-                <label class="label" for="">Gender(M/F):&nbsp;&nbsp;</label>
-                <input class="label-input" type="text" placeholder="" required> 
-                <div class="continue"><a href="./symptoms.html">Continue</a></div>   
-                            
+                <form method="post" action="{% url 'age' %}">
+                    {% csrf_token %}
+                    <label class="label" for="ageInput">Age(in Yrs):&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input class="label-input" type="number" id="ageInput" name="age" placeholder="" required> <br>   
+                    <label class="label" for="weightInput">Weight(in Kg):</label>
+                    <input class="label-input" type="number" id="weightInput" name="weight" placeholder="" required> <br>
+                    <label class="label" for="genderInput">Gender(M/F):&nbsp;&nbsp;</label>
+                    <input class="label-input" type="text" id="genderInput" name="gender" placeholder="" required> 
+                
+                    <button type="submit" class="continue">Continue</button>
+                </form>
+                
             </div>
         </div>
     </div>

@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "Home",
     "Signup",
-    "Symptom",
-    "Medicine"
+    "age65toplusyears",
+    "age18to65years",
+    "age12to18years",
+    "age5to12years",
+    "age2to5years",
+    "agezeroto2months"
 ]
 
 MIDDLEWARE = [
