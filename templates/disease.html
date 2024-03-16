@@ -83,7 +83,7 @@
             {% if matched_diseases %}
             {% for result in matched_diseases %}
             <div class="symptom-box">
-              <a href="{% url 'disease_medicines' result.disease.id %}">
+              <a href="{% url 'medicine65years' result.disease.id %}">
                 <buttom class="disease-name">{{ result.disease.name }}</button>
               </a>
               <p class="percentage-match">{{ result.percentage_match }}%</p>

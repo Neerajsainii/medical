@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "Home",
     "Signup",
     "age65toplusyears",
-    "age18to65years",
+    "age18two65years",
     "age12to18years",
     "age5to12years",
     "age2to5years",

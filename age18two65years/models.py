@@ -1,13 +1,13 @@
 from django.db import models
 
 class Disease(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255,unique=True)
 
 class Symptom(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255,unique=True)
 
 class Medicine(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255,unique=True)
 
 class DiseaseSymptom(models.Model):
     disease = models.ForeignKey(Disease, on_delete=models.CASCADE)

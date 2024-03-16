@@ -6,7 +6,7 @@ from agezeroto2months import views2months
 from age2to5years import views5years
 from age5to12years import views12years
 from age12to18years import views18years
-from age18to65years import views65years
+from age18two65years import views65years
 from age65toplusyears import viewsplus
 
 urlpatterns = [
@@ -30,7 +30,7 @@ urlpatterns = [
     # ///with login
     path("/infoage", vieew.infoage,name="age"),
     # ///zero to 2 months 
-    path('/', views2months.process_symptoms, name='symptoms2months'), 
+    path('symptoms2months/', views2months.process_symptoms, name='symptoms2months'), 
     path('medicine/<int:disease_id>/', views2months.treatment, name='medicine2months'),
 
     # ///2 months to 5 years 
@@ -48,8 +48,8 @@ urlpatterns = [
     # ///18 to 65 years 
     path('get_suggestions/', views65years.get_suggestions, name='get_suggestions'),
     path('get_symptoms/<int:disease_id>/', views65years.get_symptoms, name='get_symptoms'),
-    path('/', views65years.process_symptoms, name='process_symptoms'), 
-    path('medicines/<int:disease_id>/', views65years.treatment, name='medicines'),
+    path('symptom65years/', views65years.process_symptoms, name='process_symptoms'), 
+    path('medicines/<int:disease_id>/', views65years.treatment, name='medicine65years'),
     
     # ///65 to plus years
     path('/', viewsplus.process_symptoms, name='symptomsplus'), 
