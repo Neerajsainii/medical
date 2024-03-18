@@ -136,7 +136,7 @@
     </div>
     <script>
     function fetchSuggestions(query) {
-        fetch(`/get_suggestions?query=${query}`)
+        fetch(`/get_suggestionsplusyears=${query}`)
             .then(response => response.json())
             .then(data => {
                 const list = document.querySelector('.list');

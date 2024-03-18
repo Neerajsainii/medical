@@ -41,14 +41,14 @@ def get_matched_diseases(entered_symptoms):
 def treatment(request, disease_id):
     disease = get_object_or_404(Disease, pk=disease_id)
     medicines = MedicineDisease.objects.filter(disease=disease).select_related('medicine')
-    return render(request, 'treatment.html', {'disease': disease, 'medicines': medicines})
+    return render(request, 'w_treatment5years.html', {'disease': disease, 'medicines': medicines})
 
-def get_symptoms(request, disease_id):
+def get_symptoms12years(request, disease_id):
     symptoms = Symptom.objects.filter(diseasesymptom__disease_id=disease_id)
     symptom_data = [{'name': symptom.name} for symptom in symptoms]
     return JsonResponse({'symptoms': symptom_data, 'entered_symptoms':entered_symptoms})
 
-def get_suggestions(request):
+def get_suggestions5years(request):
     query = request.GET.get('query', '')
     suggestions = Symptom.objects.filter(name__icontains=query).values_list('name', flat=True)
     return JsonResponse(list(suggestions), safe=False)

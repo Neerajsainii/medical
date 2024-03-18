@@ -85,7 +85,7 @@
             {% if matched_diseases %}
             {% for result in matched_diseases %}
             <div class="symptom-box">
-              <a href="{% url 'disease_medicines' result.disease.id %}">
+              <a href="{% url 'dmedicine18years' result.disease.id %}">
                 <buttom class="disease-name">{{ result.disease.name }}</button>
               </a>
               <p class="percentage-match">{{ result.percentage_match }}%</p>
@@ -222,7 +222,7 @@
   });
 
   function openModal(diseaseId) {
-    fetch(`/get_symptoms/${diseaseId}`)
+    fetch(`/get_symptoms18years/${diseaseId}`)
       .then((response) => response.json())
       .then((data) => {
         const modal = document.getElementById(`myModal${diseaseId}`);
@@ -249,7 +249,7 @@
   }
 
   function openModals(diseaseId) {
-    fetch(`/get_symptoms/${diseaseId}`)
+    fetch(`/get_symptoms18years/${diseaseId}`)
       .then((response) => response.json())
       .then((data) => {
         const modal = document.getElementById(`myModal${diseaseId}`);
