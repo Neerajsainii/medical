@@ -29,8 +29,11 @@ urlpatterns = [
     path("disease/", vieew.disease),
     # ///with login
     path("/infoage", vieew.infoage,name="age"),
-    # ///zero to 2 months 
-    path('symptoms2months/', views2months.process_symptoms, name='symptoms2months'), 
+    # ///zero to 2 months
+    path('get_suggestions2months/', views2months.get_suggestions2months,name='get_suggestions2months'), 
+    path('symptom2months/', vieew.symptom2months),
+    path('get_symptoms2months/<int:disease_id>/', views2months.get_symptoms2months,name='get_symptoms2months'),
+    path('disease2months/', views2months.process_symptoms, name='disease2months'), 
     path('medicine/<int:disease_id>/', views2months.treatment, name='medicine2months'),
 
     # ///2 months to 5 years 
@@ -48,7 +51,7 @@ urlpatterns = [
     # ///18 to 65 years 
     path('get_suggestions/', views65years.get_suggestions, name='get_suggestions'),
     path('get_symptoms/<int:disease_id>/', views65years.get_symptoms, name='get_symptoms'),
-    path('symptom65years/', views65years.process_symptoms, name='process_symptoms'), 
+    # path('symptom65years/', views65years.process_symptoms, name='process_symptoms'), 
     path('medicines/<int:disease_id>/', views65years.treatment, name='medicine65years'),
     
     # ///65 to plus years

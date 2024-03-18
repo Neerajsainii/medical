@@ -15,6 +15,8 @@ def Symptom(request):
 def symptoms(request):
     return render(request,'symptoms.html')
 
+def symptom2months(request):
+    return render(request,'w_symptom2months.html ')
 
 def contact(request):
     return render(request,'contact.html ')
@@ -28,6 +30,7 @@ def child(request):
 
 def info(request):
     return render(request,'info.html ')
+
 
 def infoage(request):
     if request.method == 'POST':
