@@ -26,8 +26,8 @@
                         <div class="dropdown-content">
                             <a href="/emergency">Emergency</a>
                             <a href="">Symptom &rArr; Disease &rArr; Medicine</a>
-                            <a href="">Disease &rArr; Medicine</a>
-                            <a href="">Disease &rArr; Symptoms</a>
+                            <a href="" onclick="login()">Disease &rArr; Medicine</a>
+                            <a href="" onclick="login()">Disease &rArr; Symptoms</a>
                             <a href=""> Calculate BMI</a>
                             <a href=""> Precaution</a>
                             <!-- Add more service links here -->
@@ -67,7 +67,7 @@
                                 id="weight" /></p>
                         <button class="calc-btn">Calculate</button>
                         <p class="bmi"><span id="bmiResult"></span></p>
-                        
+
                     </form>
                 </div>
                 <div id="weight-guide" class="bottom-right">
@@ -126,33 +126,37 @@
         </div>
     </div>
     <script>
-        document.querySelector('.calc-btn').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent form submission
+        document.querySelector('.calc-btn').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent form submission
 
-    var heightInput = document.getElementById('height');
-    var weightInput = document.getElementById('weight');
+            var heightInput = document.getElementById('height');
+            var weightInput = document.getElementById('weight');
 
-    // Check if height or weight input is empty
-    if (heightInput.value.trim() === '' || weightInput.value.trim() === '') {
-        alert("Please enter both height and weight values.");
-        return; // Stop further execution
-    }
+            // Check if height or weight input is empty
+            if (heightInput.value.trim() === '' || weightInput.value.trim() === '') {
+                alert("Please enter both height and weight values.");
+                return; // Stop further execution
+            }
 
-    var height = parseFloat(heightInput.value);
-    var weight = parseFloat(weightInput.value);
+            var height = parseFloat(heightInput.value);
+            var weight = parseFloat(weightInput.value);
 
-    // Validation for height and weight ranges
-    if (height < 0 || height > 200 || weight < 0 || weight > 150) {
-        alert("Please enter valid height (0-200) and weight (0-150) values.");
-        return; // Stop further execution
-    }
+            // Validation for height and weight ranges
+            if (height < 0 || height > 200 || weight < 0 || weight > 150) {
+                alert("Please enter valid height (0-200) and weight (0-150) values.");
+                return; // Stop further execution
+            }
 
-    var bmi = weight / ((height / 100) * (height / 100));
+            var bmi = weight / ((height / 100) * (height / 100));
 
-    // Display BMI result
-    document.getElementById('bmiResult').textContent = "Your BMI: " + bmi.toFixed(1);
-});
+            // Display BMI result
+            document.getElementById('bmiResult').textContent = "Your BMI: " + bmi.toFixed(1);
+        });
 
+
+        function login() {
+            alert("login or signup to use this service");
+        }
 
 
     </script>

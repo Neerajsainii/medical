@@ -21,12 +21,13 @@
                         <div class="about-outline"><a class="nav-item" href="/about">About</a></div>
                     </li>
                     <li class="dropdown">
-                        <div class="services-outline"><a class="nav-item" href="#" style="color: black;">Services &#9662;</a></div>
+                        <div class="services-outline"><a class="nav-item" href="#" style="color: black;">Services
+                                &#9662;</a></div>
                         <div class="dropdown-content">
                             <a href="/emergency">Emergency</a>
                             <a href="">Symptom &rArr; Disease &rArr; Medicine</a>
-                            <a href="">Disease &rArr; Medicine</a>
-                            <a href="">Disease &rArr; Symptoms</a>
+                            <a href="" onclick="login()">Disease &rArr; Medicine</a>
+                            <a href="" onclick="login()">Disease &rArr; Symptoms</a>
                             <a href=""> Calculate BMI</a>
                             <a href=""> Precaution</a>
                             <!-- Add more service links here -->
@@ -39,8 +40,12 @@
             </div>
             <div class="right-nav">
                 <ul class="log">
-                    <li><div class="login-outline"><a class="login-signup" href="/login">Log in</a></div></li>
-                     <li><div class="signup-outline"><a class="login-signup" href="/signup">Sign Up</a></div></li>
+                    <li>
+                        <div class="login-outline"><a class="login-signup" href="/login">Log in</a></div>
+                    </li>
+                    <li>
+                        <div class="signup-outline"><a class="login-signup" href="/signup">Sign Up</a></div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -107,7 +112,8 @@
                             <hr color="black">
                             <ul>
                                 <li>Treat to prevent low blood sugar.</li>
-                                <li>Warm the young infant by Skin to Skin contact if the temperature is less than 36.5°C (or feels cold to touch) while arranging referral.</li>
+                                <li>Warm the young infant by Skin to Skin contact if the temperature is less than 36.5°C
+                                    (or feels cold to touch) while arranging referral.</li>
                                 <li>Advise mother how to keep the young infant warm on the way to the hospital.</li>
                                 <li>Refer URGENTLY to hospital.</li>
                             </ul>
@@ -131,7 +137,8 @@
                             <h1>IDENTIFY TREATMENT</h1>
                             <hr color="black">
                             <ul>
-                                <li>Warm the young infant using Skin to Skin contact for one hour and REASSESS. If no improvement, refer.</li>
+                                <li>Warm the young infant using Skin to Skin contact for one hour and REASSESS. If no
+                                    improvement, refer.</li>
                                 <li>Treat to prevent low blood sugar.</li>
                             </ul>
                         </div>
@@ -342,9 +349,11 @@
                                 <li>
                                     If infant also has low weight or another severe classification:
                                     <ul>
-                                        <li>Refer URGENTLY to hospital with mother giving frequent sips of ORS on the way.</li>
+                                        <li>Refer URGENTLY to hospital with mother giving frequent sips of ORS on the
+                                            way.</li>
                                         <li>Advise mother to continue breastfeeding.</li>
-                                        <li>Advise mother how to keep the young infant warm on the way to the hospital.</li>
+                                        <li>Advise mother how to keep the young infant warm on the way to the hospital.
+                                        </li>
                                     </ul>
                                 </li>
                                 <li>
@@ -379,7 +388,8 @@
                             <h1>IDENTIFY TREATMENT</h1>
                             <hr color="black">
                             <ul>
-                                <li>Give the first dose of intramuscular ampicillin and gentamicin if the young infant has low weight, dehydration, or another severe classification.</li>
+                                <li>Give the first dose of intramuscular ampicillin and gentamicin if the young infant
+                                    has low weight, dehydration, or another severe classification.</li>
                                 <li>Treat to prevent low blood sugar.</li>
                                 <li>Advise how to keep the infant warm on the way to the hospital.</li>
                                 <li>Refer to hospital.</li>
@@ -405,7 +415,7 @@
                                     <li>Not able to feed</li>
                                     <li>No attachment at all</li>
                                     <li>Not suckling at all</li>
-                                     <li>Severely Underweight (&lt;-3 S.D)</li>
+                                    <li>Severely Underweight (&lt;-3 S.D)</li>
 
 
                                 </ul>
@@ -418,7 +428,8 @@
                             <ul>
                                 <li>Give the first dose of intramuscular ampicillin and gentamicin.</li>
                                 <li>Treat to prevent low blood sugar.</li>
-                                <li>Warm the young infant by Skin to Skin contact if the temperature is less than 36.5°C (or feels cold to touch) while arranging referral.</li>
+                                <li>Warm the young infant by Skin to Skin contact if the temperature is less than 36.5°C
+                                    (or feels cold to touch) while arranging referral.</li>
                                 <li>Advise mother how to keep the young infant warm on the way to the hospital.</li>
                                 <li>Refer URGENTLY to hospital.</li>
                             </ul>
@@ -511,101 +522,106 @@
         </div>
     </div>
     <script>
-        document.querySelector("#open-popup1").addEventListener("click", function(){
-    document.querySelector(".popup1").classList.add("active");
-});
+        document.querySelector("#open-popup1").addEventListener("click", function () {
+            document.querySelector(".popup1").classList.add("active");
+        });
 
-document.querySelector(".popup1 .close-btn1").addEventListener("click", function(){
-    document.querySelector(".popup1").classList.remove("active");
-});
-
-
-document.querySelector("#open-popup2").addEventListener("click", function(){
-    document.querySelector(".popup2").classList.add("active");
-});
-
-document.querySelector(".popup2 .close-btn2").addEventListener("click", function(){
-    document.querySelector(".popup2").classList.remove("active");
-});
-document.querySelector("#open-popup3").addEventListener("click", function(){
-    document.querySelector(".popup3").classList.add("active");
-});
-
-document.querySelector(".popup3 .close-btn3").addEventListener("click", function(){
-    document.querySelector(".popup3").classList.remove("active");
-});
-
-document.querySelector("#open-popup4").addEventListener("click", function(){
-    document.querySelector(".popup4").classList.add("active");
-});
-
-document.querySelector(".popup4 .close-btn4").addEventListener("click", function(){
-    document.querySelector(".popup4").classList.remove("active");
-});
+        document.querySelector(".popup1 .close-btn1").addEventListener("click", function () {
+            document.querySelector(".popup1").classList.remove("active");
+        });
 
 
-document.querySelector("#open-popup5").addEventListener("click", function(){
-    document.querySelector(".popup5").classList.add("active");
-});
+        document.querySelector("#open-popup2").addEventListener("click", function () {
+            document.querySelector(".popup2").classList.add("active");
+        });
 
-document.querySelector(".popup5 .close-btn5").addEventListener("click", function(){
-    document.querySelector(".popup5").classList.remove("active");
-});
+        document.querySelector(".popup2 .close-btn2").addEventListener("click", function () {
+            document.querySelector(".popup2").classList.remove("active");
+        });
+        document.querySelector("#open-popup3").addEventListener("click", function () {
+            document.querySelector(".popup3").classList.add("active");
+        });
+
+        document.querySelector(".popup3 .close-btn3").addEventListener("click", function () {
+            document.querySelector(".popup3").classList.remove("active");
+        });
+
+        document.querySelector("#open-popup4").addEventListener("click", function () {
+            document.querySelector(".popup4").classList.add("active");
+        });
+
+        document.querySelector(".popup4 .close-btn4").addEventListener("click", function () {
+            document.querySelector(".popup4").classList.remove("active");
+        });
+
+
+        document.querySelector("#open-popup5").addEventListener("click", function () {
+            document.querySelector(".popup5").classList.add("active");
+        });
+
+        document.querySelector(".popup5 .close-btn5").addEventListener("click", function () {
+            document.querySelector(".popup5").classList.remove("active");
+        });
 
 
 
-document.querySelector("#open-popup6").addEventListener("click", function(){
-    document.querySelector(".popup6").classList.add("active");
-});
+        document.querySelector("#open-popup6").addEventListener("click", function () {
+            document.querySelector(".popup6").classList.add("active");
+        });
 
-document.querySelector(".popup6 .close-btn6").addEventListener("click", function(){
-    document.querySelector(".popup6").classList.remove("active");
-});
-document.querySelector("#open-popup7").addEventListener("click", function(){
-    document.querySelector(".popup7").classList.add("active");
-});
+        document.querySelector(".popup6 .close-btn6").addEventListener("click", function () {
+            document.querySelector(".popup6").classList.remove("active");
+        });
+        document.querySelector("#open-popup7").addEventListener("click", function () {
+            document.querySelector(".popup7").classList.add("active");
+        });
 
-document.querySelector(".popup7 .close-btn7").addEventListener("click", function(){
-    document.querySelector(".popup7").classList.remove("active");
-});
-document.querySelector("#open-popup8").addEventListener("click", function(){
-    document.querySelector(".popup8").classList.add("active");
-});
+        document.querySelector(".popup7 .close-btn7").addEventListener("click", function () {
+            document.querySelector(".popup7").classList.remove("active");
+        });
+        document.querySelector("#open-popup8").addEventListener("click", function () {
+            document.querySelector(".popup8").classList.add("active");
+        });
 
-document.querySelector(".popup8 .close-btn8").addEventListener("click", function(){
-    document.querySelector(".popup8").classList.remove("active");
-});
-document.querySelector("#open-popup9").addEventListener("click", function(){
-    document.querySelector(".popup9").classList.add("active");
-});
+        document.querySelector(".popup8 .close-btn8").addEventListener("click", function () {
+            document.querySelector(".popup8").classList.remove("active");
+        });
+        document.querySelector("#open-popup9").addEventListener("click", function () {
+            document.querySelector(".popup9").classList.add("active");
+        });
 
-document.querySelector(".popup9 .close-btn9").addEventListener("click", function(){
-    document.querySelector(".popup9").classList.remove("active");
-});
+        document.querySelector(".popup9 .close-btn9").addEventListener("click", function () {
+            document.querySelector(".popup9").classList.remove("active");
+        });
 
-document.querySelector("#open-popup10").addEventListener("click", function(){
-    document.querySelector(".popup10").classList.add("active");
-});
+        document.querySelector("#open-popup10").addEventListener("click", function () {
+            document.querySelector(".popup10").classList.add("active");
+        });
 
-document.querySelector(".popup10 .close-btn10").addEventListener("click", function(){
-    document.querySelector(".popup10").classList.remove("active");
-});
+        document.querySelector(".popup10 .close-btn10").addEventListener("click", function () {
+            document.querySelector(".popup10").classList.remove("active");
+        });
 
-document.querySelector("#open-popup11").addEventListener("click", function(){
-    document.querySelector(".popup11").classList.add("active");
-});
+        document.querySelector("#open-popup11").addEventListener("click", function () {
+            document.querySelector(".popup11").classList.add("active");
+        });
 
-document.querySelector(".popup11 .close-btn11").addEventListener("click", function(){
-    document.querySelector(".popup11").classList.remove("active");
-});
+        document.querySelector(".popup11 .close-btn11").addEventListener("click", function () {
+            document.querySelector(".popup11").classList.remove("active");
+        });
 
-document.querySelector("#open-popup12").addEventListener("click", function(){
-    document.querySelector(".popup12").classList.add("active");
-});
+        document.querySelector("#open-popup12").addEventListener("click", function () {
+            document.querySelector(".popup12").classList.add("active");
+        });
 
-document.querySelector(".popup12 .close-btn12").addEventListener("click", function(){
-    document.querySelector(".popup12").classList.remove("active");
-});
+        document.querySelector(".popup12 .close-btn12").addEventListener("click", function () {
+            document.querySelector(".popup12").classList.remove("active");
+        });
+
+
+        function login() {
+            alert("login or signup to use this service");
+        }
 
 
 
