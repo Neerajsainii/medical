@@ -17,6 +17,18 @@ def symptoms(request):
 
 def symptom2months(request):
     return render(request,'w_symptom2months.html ')
+def symptom5years(request):
+    return render(request,'w_symptom5years.html ')
+def symptom12years(request):
+    return render(request,'w_symptom12years.html ')
+def symptom18years(request):
+    return render(request,'w_symptom18years.html ')
+def symptom65years(request):
+    return render(request,'w_symptom65years.html ')
+def symptomplusyears(request):
+    return render(request,'w_symptomplusyears.html ')
+
+    
 
 def contact(request):
     return render(request,'contact.html ')
@@ -30,6 +42,7 @@ def child(request):
 
 def info(request):
     return render(request,'info.html ')
+
 
 
 def infoage(request):

@@ -11,7 +11,7 @@ def process_symptoms(request):
         ########for list
         entered_symptoms = request.POST.get('symptoms', '').split(',')
         matched_diseases = get_matched_diseases(entered_symptoms)
-        return render(request, 'disease.html', {'matched_diseases': matched_diseases})
+        return render(request, 'w_disease12years.html', {'matched_diseases': matched_diseases})
     else:
         return render(request, 'index.html')
 
