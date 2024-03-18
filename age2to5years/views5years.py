@@ -43,7 +43,7 @@ def treatment(request, disease_id):
     medicines = MedicineDisease.objects.filter(disease=disease).select_related('medicine')
     return render(request, 'w_treatment5years.html', {'disease': disease, 'medicines': medicines})
 
-def get_symptoms12years(request, disease_id):
+def get_symptoms5years(request, disease_id):
     symptoms = Symptom.objects.filter(diseasesymptom__disease_id=disease_id)
     symptom_data = [{'name': symptom.name} for symptom in symptoms]
     return JsonResponse({'symptoms': symptom_data, 'entered_symptoms':entered_symptoms})

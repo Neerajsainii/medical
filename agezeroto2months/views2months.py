@@ -37,7 +37,7 @@ def get_matched_diseases(entered_symptoms):
 
     return result
 
-def get_symptoms5years(request, disease_id):
+def get_symptoms2months(request, disease_id):
     symptoms = Symptom.objects.filter(diseasesymptom__disease_id=disease_id)
     symptom_data = [{'name': symptom.name} for symptom in symptoms]
     return JsonResponse({'symptoms': symptom_data, 'entered_symptoms':entered_symptoms})
