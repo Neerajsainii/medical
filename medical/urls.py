@@ -26,8 +26,8 @@ urlpatterns = [
     path("child/", home_views.child, name="child"),
     path("bmi/", home_views.bmi, name="bmi"),
     path("precaution/", home_views.precaution, name="precaution"),
-    path("treatment/", home_views.treatment, name="treatment"),
-    path("disease/", home_views.disease, name="disease"),
+    # path("treatment/", home_views.treatment, name="treatment"),
+    # path("disease/", home_views.disease, name="disease"),
     # Add your restricted URLs here with login_required decorator
     path("info/", login_required(home_views.info), name="info"),
     path("w/", login_required(home_views.whome), name="whome"),
@@ -35,8 +35,8 @@ urlpatterns = [
     path("wemergency/", login_required(home_views.wemergency), name="wemergency"),
     path("wsymptom/", login_required(home_views.wSymptom), name="wsymptom"),
     path("wsymptoms/", login_required(home_views.wsymptoms), name="wsymptoms"),
-    path("wtreatment/", login_required(home_views.wtreatment), name="wtreatment"),
-    path("wdisease/", login_required(home_views.wdisease), name="wdisease"),
+    # path("wtreatment/", login_required(home_views.wtreatment), name="wtreatment"),
+    # path("wdisease/", login_required(home_views.wdisease), name="wdisease"),
     path("wprecaution/", login_required(home_views.wprecaution), name="wprecaution"),
     path("winfant/", login_required(home_views.winfant), name="winfant"),
     path("wchild/", login_required(home_views.wchild), name="wchild"),
@@ -74,13 +74,15 @@ urlpatterns = [
     path('medicine18years/<int:disease_id>/', views18years.treatment, name='medicine18years'),
 
     # ///18 to 65 years 
-    path('get_suggestions65years/', views65years.get_suggestions65years,name='get_suggestions65years'),
     path('get_suggestions/', views65years.get_suggestions, name='get_suggestions'),
-    path('symptom65years/', home_views.symptom65years),
-     path('get_symptoms65years/<int:disease_id>/', views65years.get_symptoms65years,name='get_symptoms65years'),
-      path('disease65years/', views65years.process_symptoms, name='disease65years'),
     path('get_symptoms/<int:disease_id>/', views65years.get_symptoms, name='get_symptoms'),
-    path('disease/', views65years.process_symptoms, name='process_symptoms'), 
+    path('disease/', views65years.process_symptomss, name='process_symptomss'), 
+    path('medicine/<int:disease_id>/', views65years.treatments, name='medicine'),
+    
+    path('symptom65years/', home_views.symptom65years),
+    path('get_suggestions65years/', views65years.get_suggestions65years,name='get_suggestions65years'),
+    path('get_symptoms65years/<int:disease_id>/', views65years.get_symptoms65years,name='get_symptoms65years'),
+    path('disease65years/', views65years.process_symptoms, name='disease65years'),
     path('medicine65years/<int:disease_id>/', views65years.treatment, name='medicine65years'),
     
     # ///65 to plus years

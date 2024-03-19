@@ -11,7 +11,20 @@ def process_symptoms(request):
         ########for list
         entered_symptoms = request.POST.get('symptoms', '').split(',')
         matched_diseases = get_matched_diseases(entered_symptoms)
+        print("fsg",matched_diseases)
         return render(request, 'w_disease65years.html', {'matched_diseases': matched_diseases})
+    else:
+        return render(request, 'windex.html')
+def process_symptomss(request):
+    if request.method == 'POST':
+       ######for string
+        # entered_symptoms = request.POST.get('symptoms', '')
+        global entered_symptoms
+        ########for list
+        entered_symptoms = request.POST.get('symptoms', '').split(',')
+        matched_diseases = get_matched_diseases(entered_symptoms)
+        print(matched_diseases)
+        return render(request, 'disease.html', {'matched_diseases': matched_diseases})
     else:
         return render(request, 'index.html')
 
@@ -42,6 +55,11 @@ def treatment(request, disease_id):
     disease = get_object_or_404(Disease, pk=disease_id)
     medicines = MedicineDisease.objects.filter(disease=disease).select_related('medicine')
     return render(request, 'w_treatment65years.html', {'disease': disease, 'medicines': medicines})
+
+def treatments(request, disease_id):
+    disease = get_object_or_404(Disease, pk=disease_id)
+    medicines = MedicineDisease.objects.filter(disease=disease).select_related('medicine')
+    return render(request, 'treatment.html', {'disease': disease, 'medicines': medicines})
 
 def get_symptoms65years(request, disease_id):
     symptoms = Symptom.objects.filter(diseasesymptom__disease_id=disease_id)
