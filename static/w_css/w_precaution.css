@@ -105,11 +105,11 @@
     padding: 5px 8px;
     border-radius: 25px;
     width: 70px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     cursor: pointer;
 }
 .about-outline:hover{
-    /* background-color: rgb(60, 60, 60); */
+    background-color: rgb(60, 60, 60);
     transform: translate(0px, -3px);
 }
 .services-outline{
@@ -119,11 +119,11 @@
     padding: 5px 8px;
     border-radius: 25px;
     width: 100px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     cursor: pointer;
 }
 .services-outline:hover{
-    background-color: rgb(60, 60, 60);
+    /* background-color: rgb(60, 60, 60); */
     transform: translate(0px, -3px);
 }
 

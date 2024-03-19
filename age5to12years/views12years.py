@@ -41,7 +41,7 @@ def get_matched_diseases(entered_symptoms):
 def treatment(request, disease_id):
     disease = get_object_or_404(Disease, pk=disease_id)
     medicines = MedicineDisease.objects.filter(disease=disease).select_related('medicine')
-    return render(request, 'tw_treatment12years.html', {'disease': disease, 'medicines': medicines})
+    return render(request, 'w_treatment12years.html', {'disease': disease, 'medicines': medicines})
 
 def get_symptoms12years(request, disease_id):
     symptoms = Symptom.objects.filter(diseasesymptom__disease_id=disease_id)

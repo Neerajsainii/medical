@@ -32,6 +32,7 @@ urlpatterns = [
     path("info/", login_required(home_views.info), name="info"),
     path("w/", login_required(home_views.whome), name="whome"),
     path("wabout/", login_required(home_views.wabout), name="wabout"),
+    path("wcontact/", login_required(home_views.wcontact), name="wcontact"),
     path("wemergency/", login_required(home_views.wemergency), name="wemergency"),
     path("wsymptom/", login_required(home_views.wSymptom), name="wsymptom"),
     path("wsymptoms/", login_required(home_views.wsymptoms), name="wsymptoms"),

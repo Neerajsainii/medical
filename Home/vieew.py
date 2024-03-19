@@ -75,7 +75,7 @@ def wtreatment(request):
 def wdisease(request):
     return render(request,'w_disease.html ')
 def wprecaution(request):
-    return render(request,'w_precaution.html ')   
+    return render(request,'w_precaution.html')   
 
 def winfant(request):
     return render(request,'w_infant.html ')
