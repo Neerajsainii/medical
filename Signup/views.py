@@ -34,7 +34,7 @@ def userSignup(request):
         user.save()
         print('User signed up successfully!')
 
-        return redirect('home') 
+        return redirect('whome') 
 
     return render(request, 'signup.html')
 
@@ -50,7 +50,7 @@ def userLogin(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('whome')
         else:
             return HttpResponse('Invalid login credentials. Please try again.')
 
@@ -78,10 +78,9 @@ def contact(request):
         # Save the Contact object
         contact.save()
 
-        return redirect('home')  # Redirect to the same page after form submission
+        return redirect('whome')  # Redirect to the same page after form submission
     
-    return render(request, 'home.html')
-
+    return render(request, 'contact.html')
 
 def home(request):
-    return render(request,'index1.html')
+    return render(request,'index.html')

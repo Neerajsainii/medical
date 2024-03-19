@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+def custom_404(request, exception=None):
+    return render(request,'404.html', status=404)
 def home(request):
     return render(request,'index.html')
 
@@ -40,6 +41,9 @@ def infant(request):
 def child(request):
     return render(request,'child.html ')
 
+
+def login(request):
+    return render(request,'login.html')
 def info(request):
     return render(request,'info.html ')
 def bmi(request):
