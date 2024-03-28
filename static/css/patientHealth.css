@@ -145,53 +145,99 @@
     margin-top: 8px; /* Align items vertically centered */
 }
 
-.login-signup {
-    
+.user-nav-item {
+    color: black;
     text-decoration: none;
-    color: rgb(255, 255, 255); /* Set text color to white */
+    
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+    
+}
+.user-dropdown-1{
+    color: aliceblue;
+    list-style-type: none;
+    flex-direction: row;
+    margin-top: 7px;
+}
+.user-dropdown-2{
+    color: aliceblue;
+    list-style-type: none;
+    flex-direction: row;
+    font-size: 10px;
+}
+
+.user-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0000009f;
+    min-width: 200px;
+    z-index: 1;
+    border-radius: 10px;
+    right: 20%;
+}
+
+.user-dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1.2rem;
+}
+
+.user-dropdown-content a:hover {
+    background-color: #000000;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.user-dropdown:hover .user-dropdown-content {
+    display: block;
+}
+.person-outline{
+    /* border: 2px solid white; */
+    margin-left: 0px;
+    margin-right: 20px;
+    padding: 5px 8px;
+    border-radius: 50%;
+    width: 50px;
+    background-color: rgb(0, 0, 0);
     cursor: pointer;
 }
-
-
-.login-outline{
-    /* border: 2px solid white; */
-    padding: 5px 15px;
-    margin-right: 20px;
-    border-radius: 25px;
-    background-color: rgb(0, 0, 0);
-    margin-top: 2px;
+.person-outline img{
+    filter: invert(1);
+    height: 30px;
+    width: 30px;
 }
 
-.signup-outline{
-    /* border: 2px solid white; */
-    padding: 5px 15px;
-    margin-right: 2 0px;
-    border-radius: 25px;
-    background-color: rgb(0, 0, 0);
-    margin-top: 2px;
-}
-
-.login-outline:hover{
+.person-outline:hover{
     background-color: rgb(60, 60, 60);
     transform: translate(0px, -3px);
 }
-
-.signup-outline:hover{
-    background-color: rgb(60, 60, 60);
-    transform: translate(0px, -3px);
+.user-dropdown-content img{
+    filter: invert(1);
+    height: 20px;
+    width: 20px;
 }
+
 /* ######################################################################## BODY ##################################################### */
 
-.main-body{
-    background-image: url("../img/background.png");
-    height: 750px;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.main-body {
+    background-image: url("../img/background.png"); /* Adjust the path as necessary */
+    height: 100%;
     width: 100%;
     position: relative;
 }
-.body{
+.body {
     width: 60%;
     height: 75%;
-    /* border: 2px solid red; */
     position: absolute;
     top: 12%;
     left: 20%;
@@ -200,89 +246,88 @@
     padding-top: 1.5em;
     padding-left: 1.5rem;
 }
-
-.top-body{
-    width: 98%;
-    height: 12%;
-    /* border: 2px solid red; */
-    border-radius: 25px;
-    text-align: center;
-    font-size: 1.7rem;
-}
-
-.bottom-body{
-    height: 90%;
+.container {
     width: 100%;
-    /* border: 2px solid blue; */
-    position: relative;
-    display: flex;
-    justify-content: space-around;
+    margin:0 auto;
+    background: #ffffff00;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 50px;
+
     
 }
-.bottom-left{
-    border: 2px solid rgb(0, 0, 0);
-    margin-top: 8%;
-    height: 58%;
-    padding: 20px;
-    border-radius: 20px;
+.top-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: -30px;
 }
-.bottom-right{
-    border: 2px solid rgb(0, 0, 0); 
-    margin-top: 8%;
-    padding: 40px;
-    font-size: 1.5rem;
-    line-height: 200%;
-    height: 58%;
-    border-radius: 20px;
-}
-.results{
-    height: 6%;
-    width: 8%;
-    /* border: 2px solid red; */
-    position: absolute;
-    bottom: 39%;
-    left: 25%;
-    margin: 5px;
-    font-size: 1.3rem;
-}
-.height-weight{
-    font-size: 1.8rem;
-    line-height: 200%;
-}
-.bottom-left input{
-    height: 40px;
-    width: 70px;
-    background-color: #00000000;
-    border: 2px solid black;
-    border-radius: 10px;
-    font-size: 1rem;
-    padding: 5px;
-}
-.calc-btn {
-    background-color: #188897;
-    border: none;
-    color: rgb(0, 0, 0);
-    padding: 5px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.8rem;
-    margin: 4px 2px;
-    margin-left: 20%;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    border-radius: 8px;
-    border: 2px solid transparent;
-    font-family: 'Times New Roman', Times, serif;
+form {
+    width: 70%;
+    margin-top: 50px;
 }
 
-.calc-btn:hover {
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2.5px solid rgb(72, 71, 71);
+    color: black;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc00;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2.5px solid rgb(72, 71, 71);
+    color: black;
+}
+input[type="submit"] {
+    background-color: #188897;
+    color: black;
+    padding: 15px;
+    margin-left: 670px;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 17%;
+    font-size: 20px;
+  
+}
+input[type="submit"]:hover {
     background-color: #188897;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
-.bmi{
-    margin: 20px;
-    font-size: 2rem;
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1; 
+    margin-right: 20px; 
+}
+
+.form-group:last-child {
+    margin-right: 0; 
 }
 
 /* ########################################################### FOOTER ###################################################### */

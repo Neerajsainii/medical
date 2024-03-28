@@ -145,41 +145,85 @@
     margin-top: 8px; /* Align items vertically centered */
 }
 
-.login-signup {
-    
+.user-nav-item {
+    color: black;
     text-decoration: none;
-    color: rgb(255, 255, 255); /* Set text color to white */
+    
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+    
+}
+.user-dropdown-1{
+    color: aliceblue;
+    list-style-type: none;
+    flex-direction: row;
+    margin-top: 7px;
+}
+.user-dropdown-2{
+    color: aliceblue;
+    list-style-type: none;
+    flex-direction: row;
+    font-size: 10px;
+}
+
+.user-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0000009f;
+    min-width: 200px;
+    z-index: 1;
+    border-radius: 10px;
+    right: 20%;
+}
+
+.user-dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1.2rem;
+}
+
+.user-dropdown-content a:hover {
+    background-color: #000000;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.user-dropdown:hover .user-dropdown-content {
+    display: block;
+}
+.person-outline{
+    /* border: 2px solid white; */
+    margin-left: 0px;
+    margin-right: 20px;
+    padding: 5px 8px;
+    border-radius: 50%;
+    width: 50px;
+    background-color: rgb(0, 0, 0);
     cursor: pointer;
 }
-
-
-.login-outline{
-    /* border: 2px solid white; */
-    padding: 5px 15px;
-    margin-right: 20px;
-    border-radius: 25px;
-    background-color: rgb(0, 0, 0);
-    margin-top: 2px;
+.person-outline img{
+    filter: invert(1);
+    height: 30px;
+    width: 30px;
 }
 
-.signup-outline{
-    /* border: 2px solid white; */
-    padding: 5px 15px;
-    margin-right: 2 0px;
-    border-radius: 25px;
-    background-color: rgb(0, 0, 0);
-    margin-top: 2px;
-}
-
-.login-outline:hover{
+.person-outline:hover{
     background-color: rgb(60, 60, 60);
     transform: translate(0px, -3px);
 }
-
-.signup-outline:hover{
-    background-color: rgb(60, 60, 60);
-    transform: translate(0px, -3px);
+.user-dropdown-content img{
+    filter: invert(1);
+    height: 20px;
+    width: 20px;
 }
+
+
+
 /* ######################################################################## BODY ##################################################### */
 
 .main-body{
@@ -223,8 +267,38 @@
     border: 2px solid rgb(0, 0, 0);
     margin-top: 8%;
     height: 58%;
-    padding: 20px;
+    padding: 30px;
+    width: 35%;
     border-radius: 20px;
+}
+
+.img-1{
+    width: 50%;
+    height: 80%;
+    margin-left: 70px;
+}
+.new-patient{
+    background-color: #188897;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 5px 45px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.8rem;
+    margin: 4px 2px;
+    margin-top: 1%;
+    margin-left: 10%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+.new-patient:hover {
+    background-color: #188897;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .bottom-right{
     border: 2px solid rgb(0, 0, 0); 
@@ -233,56 +307,13 @@
     font-size: 1.5rem;
     line-height: 200%;
     height: 58%;
+    width: 37%;
     border-radius: 20px;
 }
-.results{
-    height: 6%;
-    width: 8%;
-    /* border: 2px solid red; */
-    position: absolute;
-    bottom: 39%;
-    left: 25%;
-    margin: 5px;
-    font-size: 1.3rem;
-}
-.height-weight{
-    font-size: 1.8rem;
-    line-height: 200%;
-}
-.bottom-left input{
-    height: 40px;
-    width: 70px;
-    background-color: #00000000;
-    border: 2px solid black;
-    border-radius: 10px;
-    font-size: 1rem;
-    padding: 5px;
-}
-.calc-btn {
-    background-color: #188897;
-    border: none;
-    color: rgb(0, 0, 0);
-    padding: 5px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.8rem;
-    margin: 4px 2px;
-    margin-left: 20%;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    border-radius: 8px;
-    border: 2px solid transparent;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.calc-btn:hover {
-    background-color: #188897;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-.bmi{
-    margin: 20px;
-    font-size: 2rem;
+.img-2{
+    width: 55%;
+    height: 80%;
+    margin-left: 70px;
 }
 
 /* ########################################################### FOOTER ###################################################### */
