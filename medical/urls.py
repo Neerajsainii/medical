@@ -25,6 +25,16 @@ urlpatterns = [
     path("infant/", home_views.infant, name="infant"),
     path("child/", home_views.child, name="child"),
     path("bmi/", home_views.bmi, name="bmi"),
+
+
+    path("painfo/", home_views.patientInfo, name="bmi"),
+    path("infor/", home_views.Infor, name="bmi"),
+    path("pahe/", home_views.patientHealth, name="bmi"),
+    path("pain/", home_views.patientInput, name="bmi"),
+
+
+
+
     path("precaution/", home_views.precaution, name="precaution"),
     # path("treatment/", home_views.treatment, name="treatment"),
     # path("disease/", home_views.disease, name="disease"),

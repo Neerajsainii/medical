@@ -87,7 +87,14 @@ def wbmi(request):
     return render(request,'w_bmi.html ')        
 
 
-
+def patientInfo(request):
+    return render(request,'patientInfo.html')
+def Infor(request):
+    return render(request,'Information.html')
+def patientInput(request):
+    return render(request,'patientInput.html')
+def patientHealth(request):
+    return render(request,'patientHealth.html')
 # def infoage(request):
 #     if request.method == 'POST':
 #         age = request.POST.get('age')
